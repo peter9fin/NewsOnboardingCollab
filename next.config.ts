@@ -7,9 +7,6 @@ const nextConfig: NextConfig = {
   basePath: isProd ? "/NewsOnboarding" : "",
   assetPrefix: isProd ? "/NewsOnboarding" : "",
   images: { unoptimized: true },
-  env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? "/NewsOnboarding" : "",
-  },
 };
 
 export default nextConfig;
