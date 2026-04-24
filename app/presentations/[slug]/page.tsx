@@ -3,6 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { presentations } from "../data";
 
+export function generateStaticParams() {
+  return presentations
+    .filter((p) => p.embedUrl !== null)
+    .map((p) => ({ slug: p.slug }));
+}
+
 export default async function PresentationViewerPage({
   params,
 }: {
