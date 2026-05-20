@@ -23,6 +23,7 @@ const stagingApps = [
 export default function StagingApps() {
   const [activeApp, setActiveApp] = useState<(typeof stagingApps)[0] | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -67,7 +68,7 @@ export default function StagingApps() {
             {stagingApps.map((app) => (
               <button
                 key={app.title}
-                onClick={() => setActiveApp(app)}
+                onClick={() => { setActiveApp(app); setIframeLoaded(false); }}
                 className="group text-left flex flex-col rounded-xl p-6 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(30,144,255,0.2)]"
                 style={{
                   background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)",
@@ -216,8 +217,8 @@ export default function StagingApps() {
               </div>
             </div>
 
-            {/* Auth hint banner */}
-            <div
+            {/* Auth hint banner — hidden once iframe loads */}
+            {!iframeLoaded && <div
               className="flex items-center justify-between px-4 py-2 flex-shrink-0 text-xs"
               style={{
                 backgroundColor: "rgba(30, 144, 255, 0.07)",
@@ -237,7 +238,7 @@ export default function StagingApps() {
               >
                 Reload
               </button>
-            </div>
+            </div>}
 
             {/* iframe */}
             <iframe
@@ -245,6 +246,7 @@ export default function StagingApps() {
               className="flex-1 w-full border-0"
               title={activeApp.title}
               allowFullScreen
+              onLoad={() => setIframeLoaded(true)}
             />
           </div>
         </div>
