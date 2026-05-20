@@ -161,6 +161,22 @@ export default function StagingApps() {
               </div>
 
               <div className="flex items-center gap-1 flex-shrink-0 ml-2">
+                {/* Open in new tab */}
+                <a
+                  href={activeApp.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1.5 rounded transition-colors hover:bg-[rgba(30,144,255,0.12)] flex items-center"
+                  style={{ color: "rgba(204,204,204,0.55)" }}
+                  title="Open in new tab (sign in here first if needed)"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+
                 {/* Fullscreen toggle */}
                 <button
                   onClick={toggleFullscreen}
@@ -198,6 +214,29 @@ export default function StagingApps() {
                   </svg>
                 </button>
               </div>
+            </div>
+
+            {/* Auth hint banner */}
+            <div
+              className="flex items-center justify-between px-4 py-2 flex-shrink-0 text-xs"
+              style={{
+                backgroundColor: "rgba(30, 144, 255, 0.07)",
+                borderBottom: "1px solid rgba(30, 144, 255, 0.12)",
+                fontFamily: "var(--font-space-mono)",
+                color: "rgba(204,204,204,0.5)",
+              }}
+            >
+              <span>First time? Use the ↗ button above to sign in, then reload this panel.</span>
+              <button
+                onClick={() => {
+                  const iframe = document.querySelector(`iframe[title="${activeApp.title}"]`) as HTMLIFrameElement;
+                  if (iframe) iframe.src = iframe.src;
+                }}
+                className="ml-4 flex-shrink-0 transition-colors hover:text-white"
+                style={{ color: "rgba(30,144,255,0.7)" }}
+              >
+                Reload
+              </button>
             </div>
 
             {/* iframe */}
