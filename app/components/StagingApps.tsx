@@ -23,7 +23,6 @@ const stagingApps = [
 export default function StagingApps() {
   const [activeApp, setActiveApp] = useState<(typeof stagingApps)[0] | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [iframeLoaded, setIframeLoaded] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -52,7 +51,7 @@ export default function StagingApps() {
       <section className="px-6 pb-28">
         <div className="max-w-5xl mx-auto">
           {/* Section divider */}
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-4">
             <div className="flex-1 h-px" style={{ backgroundColor: "rgba(30,144,255,0.12)" }} />
             <p
               className="text-xs tracking-[0.25em] uppercase whitespace-nowrap"
@@ -63,12 +62,16 @@ export default function StagingApps() {
             <div className="flex-1 h-px" style={{ backgroundColor: "rgba(30,144,255,0.12)" }} />
           </div>
 
+          <p className="text-xs text-center mb-8" style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}>
+            Use the ↗ button to open each app in a new tab and sign in first — the embedded view will then load correctly.
+          </p>
+
           {/* App cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {stagingApps.map((app) => (
               <button
                 key={app.title}
-                onClick={() => { setActiveApp(app); setIframeLoaded(false); }}
+                onClick={() => setActiveApp(app)}
                 className="group text-left flex flex-col rounded-xl p-6 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(30,144,255,0.2)]"
                 style={{
                   background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)",
@@ -217,36 +220,12 @@ export default function StagingApps() {
               </div>
             </div>
 
-            {/* Auth hint banner — hidden once iframe loads */}
-            {!iframeLoaded && <div
-              className="flex items-center justify-between px-4 py-2 flex-shrink-0 text-xs"
-              style={{
-                backgroundColor: "rgba(30, 144, 255, 0.07)",
-                borderBottom: "1px solid rgba(30, 144, 255, 0.12)",
-                fontFamily: "var(--font-space-mono)",
-                color: "rgba(204,204,204,0.5)",
-              }}
-            >
-              <span>First time? Use the ↗ button above to sign in, then reload this panel.</span>
-              <button
-                onClick={() => {
-                  const iframe = document.querySelector(`iframe[title="${activeApp.title}"]`) as HTMLIFrameElement;
-                  if (iframe) iframe.src = iframe.src;
-                }}
-                className="ml-4 flex-shrink-0 transition-colors hover:text-white"
-                style={{ color: "rgba(30,144,255,0.7)" }}
-              >
-                Reload
-              </button>
-            </div>}
-
             {/* iframe */}
             <iframe
               src={activeApp.href}
               className="flex-1 w-full border-0"
               title={activeApp.title}
               allowFullScreen
-              onLoad={() => setIframeLoaded(true)}
             />
           </div>
         </div>
