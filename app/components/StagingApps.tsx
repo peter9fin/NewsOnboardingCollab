@@ -13,6 +13,11 @@ const stagingApps = [
     description: "9admin staging environment for admin workflows.",
     href: "https://9admin.staging.9fin.net/",
   },
+  {
+    title: "NewsApp Staging",
+    description: "NewsApp staging environment for testing and QA.",
+    href: "https://news.staging.9fin.net/",
+  },
 ];
 
 export default function StagingApps() {
