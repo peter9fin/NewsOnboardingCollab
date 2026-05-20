@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const guides = [
@@ -92,14 +91,14 @@ export default function NotionGuides() {
           }}
         >
           <Link href="/">
-            <Image
-              src="/9fin-logo.png"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/9fin-logo.png`}
               alt="9fin"
               width={80}
               height={32}
               className="object-contain rounded-lg"
               style={{ width: "80px", height: "auto" }}
-              priority
             />
           </Link>
           <span
