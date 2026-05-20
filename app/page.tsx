@@ -1,4 +1,5 @@
 import Link from "next/link";
+import StagingApps from "./components/StagingApps";
 
 const cards = [
   {
@@ -232,6 +233,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <StagingApps />
 
         {/* Footer */}
         <footer

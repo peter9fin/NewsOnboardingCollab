@@ -98,7 +98,7 @@ export default function NotionGuides() {
               width={80}
               height={32}
               className="object-contain rounded-lg"
-              style={{ height: "auto" }}
+              style={{ width: "80px", height: "auto" }}
               priority
             />
           </Link>
