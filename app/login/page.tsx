@@ -53,7 +53,7 @@ export default function LoginPage() {
         <SubmitButton loading={loading}>Sign in</SubmitButton>
       </form>
 
-      <div className="mt-6 flex flex-col gap-3 text-center">
+      <div className="mt-6 text-center">
         <Link
           href="/auth/forgot-password"
           className="text-xs transition-opacity hover:opacity-100 opacity-70"
@@ -61,19 +61,6 @@ export default function LoginPage() {
         >
           Forgot your password?
         </Link>
-        <p
-          className="text-xs"
-          style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}
-        >
-          No account?{" "}
-          <Link
-            href="/signup"
-            className="transition-opacity hover:opacity-100 opacity-80"
-            style={{ color: "#1E90FF" }}
-          >
-            Sign up
-          </Link>
-        </p>
       </div>
     </AuthShell>
   );
