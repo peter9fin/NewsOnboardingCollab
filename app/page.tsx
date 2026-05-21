@@ -1,71 +1,106 @@
 import Link from "next/link";
 import StagingApps from "./components/StagingApps";
+import SignOutButton from "./components/SignOutButton";
 
-const cards = [
+type ContentSection = {
+  type: "presentations" | "notion" | "training";
+  title: string;
+  description: string;
+  href: string;
+  available: boolean;
+};
+
+type Team = {
+  id: string;
+  label: string;
+  description: string;
+  sections: ContentSection[];
+};
+
+const teams: Team[] = [
   {
-    title: "Presentations",
-    description:
-      "Structured training decks to walk you through how we work.",
-    href: "/presentations",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
-      </svg>
-    ),
+    id: "9news",
+    label: "9news",
+    description: "Editorial news workflow — triage, tagging, and production.",
+    sections: [
+      {
+        type: "presentations",
+        title: "Presentations",
+        description: "Training decks covering 9news editorial workflows.",
+        href: "/presentations",
+        available: true,
+      },
+      {
+        type: "notion",
+        title: "Notion Docs",
+        description: "Deep-dive reference guides for 9news processes.",
+        href: "/notion-guides",
+        available: true,
+      },
+      {
+        type: "training",
+        title: "Training",
+        description: "Guided exercises to test your 9news knowledge.",
+        href: "#",
+        available: false,
+      },
+    ],
   },
   {
-    title: "Notion Guides",
-    description: "Deep-dive reference docs for every part of the job.",
-    href: "/notion-guides",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-      </svg>
-    ),
+    id: "newsapp",
+    label: "NewsApp",
+    description: "News application — development, QA, and maintenance.",
+    sections: [
+      {
+        type: "presentations",
+        title: "Presentations",
+        description: "Training decks for the NewsApp product and stack.",
+        href: "/presentations",
+        available: true,
+      },
+      {
+        type: "notion",
+        title: "Notion Docs",
+        description: "Reference docs for NewsApp workflows and tooling.",
+        href: "/notion-guides",
+        available: true,
+      },
+      {
+        type: "training",
+        title: "Training",
+        description: "Exercises and quizzes for the NewsApp team.",
+        href: "#",
+        available: false,
+      },
+    ],
   },
   {
-    title: "Training Questions",
-    description: "Test your knowledge with guided exercises.",
-    href: "#",
-    icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M9 11l3 3L22 4" />
-        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-      </svg>
-    ),
+    id: "ratings",
+    label: "Ratings",
+    description: "Credit ratings coverage, methodology, and processes.",
+    sections: [
+      {
+        type: "presentations",
+        title: "Presentations",
+        description: "Training decks on ratings methodology and workflow.",
+        href: "/presentations",
+        available: true,
+      },
+      {
+        type: "notion",
+        title: "Notion Docs",
+        description: "Reference guides for ratings coverage and tools.",
+        href: "/notion-guides",
+        available: true,
+      },
+      {
+        type: "training",
+        title: "Training",
+        description: "Exercises to test your ratings knowledge.",
+        href: "#",
+        available: false,
+      },
+    ],
   },
 ];
 
@@ -94,7 +129,6 @@ export default function Home() {
         }}
       />
 
-      {/* All content sits above backgrounds */}
       <div className="relative z-10 flex flex-col min-h-screen">
 
         {/* Sticky Navbar */}
@@ -116,21 +150,22 @@ export default function Home() {
             className="object-contain rounded-lg"
             style={{ height: "auto" }}
           />
-
-          <span
-            className="text-xs tracking-[0.2em] uppercase hidden sm:block"
-            style={{
-              fontFamily: "var(--font-space-mono)",
-              color: "rgba(204,204,204,0.55)",
-            }}
-          >
-            Onboarding Portal
-          </span>
+          <div className="flex items-center gap-6">
+            <span
+              className="text-xs tracking-[0.2em] uppercase hidden sm:block"
+              style={{
+                fontFamily: "var(--font-space-mono)",
+                color: "rgba(204,204,204,0.55)",
+              }}
+            >
+              Onboarding Portal
+            </span>
+            <SignOutButton />
+          </div>
         </nav>
 
         {/* Hero */}
-        <section className="flex flex-col items-center justify-center text-center px-6 pt-28 pb-32">
-          {/* Pill eyebrow badge */}
+        <section className="flex flex-col items-center justify-center text-center px-6 pt-24 pb-24">
           <div
             className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 mb-10"
             style={{
@@ -153,7 +188,6 @@ export default function Home() {
             </span>
           </div>
 
-          {/* Main heading — Inter Bold, large & tight */}
           <h1
             className="font-bold tracking-tight leading-none mb-7"
             style={{
@@ -165,71 +199,46 @@ export default function Home() {
             Welcome to 9fin.
           </h1>
 
-          {/* Subheading */}
           <p
-            className="text-lg md:text-xl max-w-lg leading-relaxed mb-11"
+            className="text-lg md:text-xl max-w-lg leading-relaxed"
             style={{ fontFamily: "var(--font-inter)", color: "#CCCCCC" }}
           >
             Everything you need to get up to speed — structured, searchable,
             and all in one place.
           </p>
-
-          {/* Primary CTA */}
-          <a
-            href="#"
-            className="inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-sm font-semibold transition-all duration-200 hover:brightness-110 hover:scale-[1.03]"
-            style={{
-              fontFamily: "var(--font-inter)",
-              backgroundColor: "#1E90FF",
-              color: "white",
-              boxShadow:
-                "0 0 36px rgba(30, 144, 255, 0.45), inset 0 1px 0 rgba(255,255,255,0.18)",
-            }}
-          >
-            Explore Portal
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
         </section>
 
-        {/* Section divider with label */}
-        <div className="flex items-center gap-4 max-w-5xl mx-auto px-6 mb-12 w-full">
-          <div
-            className="flex-1 h-px"
-            style={{ backgroundColor: "rgba(30,144,255,0.12)" }}
-          />
-          <p
-            className="text-xs tracking-[0.25em] uppercase whitespace-nowrap"
-            style={{
-              fontFamily: "var(--font-space-mono)",
-              color: "rgba(204,204,204,0.4)",
-            }}
-          >
-            Your Onboarding Path
-          </p>
-          <div
-            className="flex-1 h-px"
-            style={{ backgroundColor: "rgba(30,144,255,0.12)" }}
-          />
-        </div>
+        {/* General Learning — placeholder */}
+        <section className="px-6 pb-20">
+          <div className="max-w-5xl mx-auto">
+            <SectionDivider label="General Learning" />
+            <div
+              className="mt-8 rounded-xl border flex items-center justify-center"
+              style={{
+                height: "120px",
+                borderColor: "rgba(30, 144, 255, 0.12)",
+                background: "rgba(30, 144, 255, 0.03)",
+              }}
+            >
+              <span
+                className="text-xs tracking-[0.2em] uppercase"
+                style={{
+                  fontFamily: "var(--font-space-mono)",
+                  color: "rgba(204,204,204,0.25)",
+                }}
+              >
+                Coming soon
+              </span>
+            </div>
+          </div>
+        </section>
 
-        {/* Cards */}
-        <section className="flex-1 px-6 pb-28">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
-            {cards.map((card) => (
-              <Card key={card.title} card={card} />
+        {/* Team Workflow Sections */}
+        <section className="px-6 pb-28">
+          <div className="max-w-5xl mx-auto space-y-20">
+            <SectionDivider label="Team Workflows" />
+            {teams.map((team) => (
+              <TeamSection key={team.id} team={team} />
             ))}
           </div>
         </section>
@@ -252,76 +261,209 @@ export default function Home() {
   );
 }
 
-function Card({
-  card,
-}: {
-  card: {
-    title: string;
-    description: string;
-    href: string;
-    icon: React.ReactNode;
-  };
-}) {
+function SectionDivider({ label }: { label: string }) {
   return (
-    <Link
-      href={card.href}
-      className="group flex flex-col rounded-xl p-7 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_rgba(30,144,255,0.22)] cursor-pointer border border-[rgba(30,144,255,0.28)] hover:border-[rgba(30,144,255,0.55)]"
+    <div className="flex items-center gap-5 w-full">
+      <div
+        className="flex-1 h-px"
+        style={{ backgroundColor: "rgba(30,144,255,0.18)" }}
+      />
+      <p
+        className="text-sm tracking-[0.22em] uppercase whitespace-nowrap font-semibold"
+        style={{
+          fontFamily: "var(--font-space-mono)",
+          color: "rgba(255,255,255,0.75)",
+        }}
+      >
+        {label}
+      </p>
+      <div
+        className="flex-1 h-px"
+        style={{ backgroundColor: "rgba(30,144,255,0.18)" }}
+      />
+    </div>
+  );
+}
+
+function TeamSection({ team }: { team: Team }) {
+  return (
+    <div>
+      {/* Team header */}
+      <div className="mb-7">
+        <h2
+          className="text-2xl font-bold tracking-tight mb-2"
+          style={{ fontFamily: "var(--font-inter)", color: "white" }}
+        >
+          {team.label}
+        </h2>
+        <p
+          className="text-sm"
+          style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.6)" }}
+        >
+          {team.description}
+        </p>
+      </div>
+
+      {/* Content cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {team.sections.map((section) => (
+          <ContentCard key={section.type} section={section} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ContentCard({ section }: { section: ContentSection }) {
+  const inner = (
+    <div
+      className={[
+        "group flex flex-col rounded-xl p-7 h-full transition-[transform,box-shadow,border-color] duration-300",
+        section.available
+          ? "hover:-translate-y-1.5 hover:shadow-[0_20px_56px_rgba(30,144,255,0.22)] cursor-pointer border border-[rgba(30,144,255,0.28)] hover:border-[rgba(30,144,255,0.55)]"
+          : "cursor-default border border-[rgba(30,144,255,0.1)] opacity-50",
+      ].join(" ")}
       style={{
-        background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)",
-        touchAction: "manipulation",
+        background: section.available
+          ? "linear-gradient(160deg, #0e2345 0%, #091830 100%)"
+          : "linear-gradient(160deg, #0b1b35 0%, #081528 100%)",
       }}
-      aria-label={`Get started with ${card.title}`}
     >
-      {/* Icon container */}
+      {/* Icon */}
       <div
         className="w-10 h-10 rounded-lg flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-[rgba(30,144,255,0.18)]"
         style={{
-          backgroundColor: "rgba(30, 144, 255, 0.1)",
-          border: "1px solid rgba(30, 144, 255, 0.2)",
-          color: "#1E90FF",
+          backgroundColor: section.available
+            ? "rgba(30, 144, 255, 0.1)"
+            : "rgba(255,255,255,0.04)",
+          border: `1px solid ${section.available ? "rgba(30,144,255,0.2)" : "rgba(255,255,255,0.06)"}`,
+          color: section.available ? "#1E90FF" : "rgba(204,204,204,0.3)",
         }}
       >
-        {card.icon}
+        <SectionIcon type={section.type} />
       </div>
 
       <h2
         className="text-base font-semibold mb-2.5 tracking-tight"
-        style={{ fontFamily: "var(--font-inter)", color: "white" }}
+        style={{
+          fontFamily: "var(--font-inter)",
+          color: section.available ? "white" : "rgba(255,255,255,0.45)",
+        }}
       >
-        {card.title}
+        {section.title}
       </h2>
 
       <p
         className="text-sm leading-relaxed flex-1"
-        style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.85)" }}
-      >
-        {card.description}
-      </p>
-
-      <div
-        className="mt-7 inline-flex items-center gap-1.5 text-xs font-medium transition-all duration-200 group-hover:gap-3"
         style={{
-          fontFamily: "var(--font-space-mono)",
-          color: "#1E90FF",
+          fontFamily: "var(--font-inter)",
+          color: section.available
+            ? "rgba(204,204,204,0.85)"
+            : "rgba(204,204,204,0.35)",
         }}
       >
-        Get Started
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="13"
-          height="13"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
+        {section.description}
+      </p>
+
+      {section.available ? (
+        <div
+          className="mt-7 inline-flex items-center gap-1.5 text-xs font-medium transition-all duration-200 group-hover:gap-3"
+          style={{ fontFamily: "var(--font-space-mono)", color: "#1E90FF" }}
         >
-          <line x1="5" y1="12" x2="19" y2="12" />
-          <polyline points="12 5 19 12 12 19" />
-        </svg>
-      </div>
+          Get Started
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </div>
+      ) : (
+        <div
+          className="mt-7 text-xs"
+          style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.3)" }}
+        >
+          Coming soon
+        </div>
+      )}
+    </div>
+  );
+
+  if (!section.available) return <div className="h-full">{inner}</div>;
+
+  return (
+    <Link href={section.href} className="h-full block">
+      {inner}
     </Link>
+  );
+}
+
+function SectionIcon({ type }: { type: ContentSection["type"] }) {
+  if (type === "presentations") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </svg>
+    );
+  }
+
+  if (type === "notion") {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M9 11l3 3L22 4" />
+      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+    </svg>
   );
 }
