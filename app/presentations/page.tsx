@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { presentations } from "./data";
+import CompletionFooter from "@/app/components/CompletionFooter";
 
-export default function PresentationsPage() {
+export default function PresentationsPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ team?: string }>;
+}) {
   return (
     <div
       className="min-h-screen flex flex-col relative overflow-x-hidden"
@@ -110,6 +115,13 @@ export default function PresentationsPage() {
             ))}
           </div>
         </section>
+
+        <CompletionFooter
+          searchParams={searchParams}
+          step="presentations"
+          nextStep="training"
+          nextStepLabel="Training"
+        />
 
         {/* Footer */}
         <footer
