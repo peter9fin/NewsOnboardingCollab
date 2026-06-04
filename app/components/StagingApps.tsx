@@ -50,70 +50,67 @@ export default function StagingApps() {
     <>
       <section className="px-6 pb-28">
         <div className="max-w-5xl mx-auto">
-          {/* Section divider */}
-          <div className="flex items-center gap-4 mb-4">
-            <div className="flex-1 h-px" style={{ backgroundColor: "rgba(30,144,255,0.12)" }} />
-            <p
-              className="text-xs tracking-[0.25em] uppercase whitespace-nowrap"
-              style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}
+          <div className="mb-8 pl-4" style={{ borderLeft: "2px solid #1E90FF" }}>
+            <h2
+              className="text-xl font-bold tracking-tight mb-1"
+              style={{ fontFamily: "var(--font-inter)", color: "white" }}
             >
               Staging Apps
+            </h2>
+            <p
+              className="text-sm"
+              style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.55)" }}
+            >
+              Live staging environments for hands-on practice. Open in a new tab to sign in first, then launch embedded below.
             </p>
-            <div className="flex-1 h-px" style={{ backgroundColor: "rgba(30,144,255,0.12)" }} />
           </div>
 
-          <p className="text-xs text-center mb-8" style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}>
-            Use the ↗ button to open each app in a new tab and sign in first — the embedded view will then load correctly.
-          </p>
-
           {/* App cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {stagingApps.map((app) => (
               <button
                 key={app.title}
                 onClick={() => setActiveApp(app)}
-                className="group text-left flex flex-col rounded-xl p-6 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(30,144,255,0.2)]"
+                className="group text-left flex flex-col rounded-xl p-8 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_rgba(30,144,255,0.22)] border border-[rgba(30,144,255,0.28)] hover:border-[rgba(30,144,255,0.55)]"
                 style={{
                   background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)",
-                  border: "1px solid rgba(30, 144, 255, 0.28)",
                 }}
               >
                 <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center mb-4 flex-shrink-0"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-7 transition-colors duration-300 group-hover:bg-[rgba(30,144,255,0.18)]"
                   style={{
                     backgroundColor: "rgba(30, 144, 255, 0.1)",
                     border: "1px solid rgba(30, 144, 255, 0.2)",
                     color: "#1E90FF",
                   }}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="3" width="20" height="14" rx="2" />
                     <polyline points="8 21 12 17 16 21" />
                   </svg>
                 </div>
 
                 <h2
-                  className="text-sm font-semibold mb-2 tracking-tight"
+                  className="text-xl font-bold mb-3 tracking-tight"
                   style={{ fontFamily: "var(--font-inter)", color: "white" }}
                 >
                   {app.title}
                 </h2>
 
                 <p
-                  className="text-xs leading-relaxed flex-1"
-                  style={{ fontFamily: "var(--font-inter)", color: "#CCCCCC" }}
+                  className="text-sm leading-relaxed flex-1"
+                  style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.75)" }}
                 >
                   {app.description}
                 </p>
 
                 <div
-                  className="mt-5 inline-flex items-center gap-1.5 text-xs font-medium transition-all duration-200 group-hover:gap-2.5"
+                  className="mt-8 inline-flex items-center gap-1.5 text-xs font-medium transition-all duration-200 group-hover:gap-3"
                   style={{ fontFamily: "var(--font-space-mono)", color: "#1E90FF" }}
                 >
                   Open App
-                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                   </svg>
                 </div>
               </button>

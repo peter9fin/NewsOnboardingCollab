@@ -95,7 +95,7 @@ export default function Home() {
         </nav>
 
         {/* Hero */}
-        <section className="flex flex-col items-center justify-center text-center px-6 pt-24 pb-20">
+        <section className="flex flex-col items-center justify-center text-center px-6 pt-24 pb-12">
           <div
             className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 mb-10"
             style={{
@@ -123,80 +123,230 @@ export default function Home() {
             Welcome to 9fin.
           </h1>
 
-          <p
-            className="text-lg md:text-xl max-w-lg leading-relaxed"
-            style={{ fontFamily: "var(--font-inter)", color: "#CCCCCC" }}
-          >
-            Everything you need to get up to speed — structured, searchable,
-            and all in one place.
-          </p>
+        </section>
+
+        {/* Introduction & Onboarding Path */}
+        <section className="px-6 pb-16">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-5">
+
+            {/* Welcome copy */}
+            <div
+              className="lg:col-span-3 rounded-2xl p-8 flex flex-col justify-between"
+              style={{
+                background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)",
+                border: "1px solid rgba(30,144,255,0.22)",
+              }}
+            >
+              <div>
+                <span
+                  className="inline-block text-[10px] tracking-[0.22em] uppercase px-2.5 py-1 rounded-full mb-6"
+                  style={{
+                    fontFamily: "var(--font-space-mono)",
+                    color: "#1E90FF",
+                    backgroundColor: "rgba(30,144,255,0.1)",
+                    border: "1px solid rgba(30,144,255,0.2)",
+                  }}
+                >
+                  Getting Started
+                </span>
+                <h2
+                  className="text-2xl font-bold tracking-tight mb-4 leading-snug"
+                  style={{ fontFamily: "var(--font-inter)", color: "white" }}
+                >
+                  You&apos;re now part of the 9fin News team.
+                </h2>
+                <p
+                  className="text-sm leading-relaxed mb-3"
+                  style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.7)" }}
+                >
+                  9fin is the leading data and intelligence platform for leveraged finance.
+                  This portal is your structured guide to getting up to speed — the markets
+                  you&apos;ll track, the tools you&apos;ll use, and the workflows
+                  you&apos;ll follow every day.
+                </p>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.7)" }}
+                >
+                  Everything is laid out in a deliberate order. Work through each section
+                  from top to bottom and you&apos;ll have a solid foundation before your
+                  first week is out.
+                </p>
+              </div>
+              <div
+                className="mt-8 pt-6 flex items-center gap-2"
+                style={{ borderTop: "1px solid rgba(30,144,255,0.12)" }}
+              >
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#22c55e" }} />
+                <p
+                  className="text-xs"
+                  style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}
+                >
+                  Complete each step in order to unlock the next
+                </p>
+              </div>
+            </div>
+
+            {/* Onboarding path steps */}
+            <div
+              className="lg:col-span-2 rounded-2xl p-7 flex flex-col"
+              style={{
+                background: "linear-gradient(160deg, #0a1e3d 0%, #070f1f 100%)",
+                border: "1px solid rgba(30,144,255,0.15)",
+              }}
+            >
+              <p
+                className="text-[10px] tracking-[0.22em] uppercase mb-6"
+                style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}
+              >
+                Your Onboarding Path
+              </p>
+
+              <div className="flex flex-col gap-0 flex-1">
+                {[
+                  {
+                    n: "01",
+                    title: "General Learning",
+                    desc: "Start here. Watch the Credit Markets 101 presentation and complete the knowledge quiz to build your financial foundation.",
+                    color: "#1E90FF",
+                  },
+                  {
+                    n: "02",
+                    title: "Team Workflows",
+                    desc: "Work through all three team sections below — 9news, NewsApp, and Ratings. In each, complete the Best Practice Guide, Presentations, and Training in order.",
+                    color: "#1E90FF",
+                  },
+                  {
+                    n: "03",
+                    title: "You're ready",
+                    desc: "Once all steps are marked complete, you have everything you need to hit the ground running.",
+                    color: "#22c55e",
+                  },
+                ].map((step, i, arr) => (
+                  <div key={step.n} className="flex gap-4">
+                    {/* Line + number */}
+                    <div className="flex flex-col items-center flex-shrink-0">
+                      <div
+                        className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0"
+                        style={{
+                          backgroundColor: `${step.color}18`,
+                          border: `1px solid ${step.color}40`,
+                          color: step.color,
+                          fontFamily: "var(--font-space-mono)",
+                        }}
+                      >
+                        {step.n}
+                      </div>
+                      {i < arr.length - 1 && (
+                        <div
+                          className="w-px flex-1 my-1"
+                          style={{ backgroundColor: "rgba(30,144,255,0.12)", minHeight: "20px" }}
+                        />
+                      )}
+                    </div>
+                    {/* Text */}
+                    <div className="pb-6">
+                      <p
+                        className="text-sm font-semibold mb-1"
+                        style={{ fontFamily: "var(--font-inter)", color: "white" }}
+                      >
+                        {step.title}
+                      </p>
+                      <p
+                        className="text-xs leading-relaxed"
+                        style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}
+                      >
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </section>
 
         {/* General Learning */}
         <section className="px-6 pb-16">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-8 w-full">
-              <div className="flex-1 h-px" style={{ backgroundColor: "rgba(30,144,255,0.18)" }} />
-              <p
-                className="text-sm tracking-[0.22em] uppercase whitespace-nowrap font-semibold"
-                style={{ fontFamily: "var(--font-space-mono)", color: "rgba(255,255,255,0.75)" }}
+            <div className="mb-8 pl-4" style={{ borderLeft: "2px solid #1E90FF" }}>
+              <h2
+                className="text-xl font-bold tracking-tight mb-1"
+                style={{ fontFamily: "var(--font-inter)", color: "white" }}
               >
                 General Learning
+              </h2>
+              <p
+                className="text-sm"
+                style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.55)" }}
+              >
+                Start here. Build your financial foundation before moving into team-specific content.
               </p>
-              <div className="flex-1 h-px" style={{ backgroundColor: "rgba(30,144,255,0.18)" }} />
             </div>
-            <Link
-              href="/general-learning"
-              className="group flex items-center justify-between rounded-xl border px-8 py-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(30,144,255,0.18)] border-[rgba(30,144,255,0.22)] hover:border-[rgba(30,144,255,0.5)]"
-              style={{ background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)" }}
-            >
-              <div className="flex items-center gap-5">
+            <div className="flex justify-center">
+              <Link
+                href="/general-learning"
+                className="group flex flex-col rounded-xl p-8 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_rgba(30,144,255,0.22)] cursor-pointer border border-[rgba(30,144,255,0.28)] hover:border-[rgba(30,144,255,0.55)] w-full md:w-1/3"
+                style={{ background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)" }}
+              >
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-7 transition-colors duration-300 group-hover:bg-[rgba(30,144,255,0.18)]"
                   style={{
                     backgroundColor: "rgba(30,144,255,0.1)",
                     border: "1px solid rgba(30,144,255,0.2)",
                     color: "#1E90FF",
                   }}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                   </svg>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold mb-0.5" style={{ fontFamily: "var(--font-inter)", color: "white" }}>
-                    Financial Markets Fundamentals
-                  </p>
-                  <p className="text-xs" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}>
-                    Credit Markets 101 presentation + 10-question quiz
-                  </p>
+
+                <h2
+                  className="text-xl font-bold mb-3 tracking-tight"
+                  style={{ fontFamily: "var(--font-inter)", color: "white" }}
+                >
+                  Financial Markets Fundamentals
+                </h2>
+
+                <p
+                  className="text-sm leading-relaxed flex-1"
+                  style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.75)" }}
+                >
+                  Credit Markets 101 presentation and a 10-question quiz to build your financial foundation.
+                </p>
+
+                <div
+                  className="mt-8 inline-flex items-center gap-1.5 text-xs font-medium transition-all duration-200 group-hover:gap-3"
+                  style={{ fontFamily: "var(--font-space-mono)", color: "#1E90FF" }}
+                >
+                  Enter
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                  </svg>
                 </div>
-              </div>
-              <div
-                className="inline-flex items-center gap-1.5 text-xs font-medium transition-all duration-200 group-hover:gap-3 flex-shrink-0"
-                style={{ fontFamily: "var(--font-space-mono)", color: "#1E90FF" }}
-              >
-                Enter
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-                </svg>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* Team boxes */}
         <section className="px-6 pb-28">
           <div className="max-w-5xl mx-auto">
-            <div className="flex items-center gap-4 mb-12 w-full">
-              <div className="flex-1 h-px" style={{ backgroundColor: "rgba(30,144,255,0.18)" }} />
-              <p
-                className="text-sm tracking-[0.22em] uppercase whitespace-nowrap font-semibold"
-                style={{ fontFamily: "var(--font-space-mono)", color: "rgba(255,255,255,0.75)" }}
+            <div className="mb-12 pl-4" style={{ borderLeft: "2px solid #1E90FF" }}>
+              <h2
+                className="text-xl font-bold tracking-tight mb-1"
+                style={{ fontFamily: "var(--font-inter)", color: "white" }}
               >
                 Workflows
+              </h2>
+              <p
+                className="text-sm"
+                style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.55)" }}
+              >
+                Work through all three team sections. Each follows the same path — best practice guides, presentations, then training.
               </p>
-              <div className="flex-1 h-px" style={{ backgroundColor: "rgba(30,144,255,0.18)" }} />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
