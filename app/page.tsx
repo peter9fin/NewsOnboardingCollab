@@ -132,7 +132,7 @@ export default function Home() {
           </p>
         </section>
 
-        {/* General Learning — placeholder */}
+        {/* General Learning */}
         <section className="px-6 pb-16">
           <div className="max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-8 w-full">
@@ -145,21 +145,43 @@ export default function Home() {
               </p>
               <div className="flex-1 h-px" style={{ backgroundColor: "rgba(30,144,255,0.18)" }} />
             </div>
-            <div
-              className="rounded-xl border flex items-center justify-center"
-              style={{
-                height: "120px",
-                borderColor: "rgba(30, 144, 255, 0.12)",
-                background: "rgba(30, 144, 255, 0.03)",
-              }}
+            <Link
+              href="/general-learning"
+              className="group flex items-center justify-between rounded-xl border px-8 py-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(30,144,255,0.18)] border-[rgba(30,144,255,0.22)] hover:border-[rgba(30,144,255,0.5)]"
+              style={{ background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)" }}
             >
-              <span
-                className="text-xs tracking-[0.2em] uppercase"
-                style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.25)" }}
+              <div className="flex items-center gap-5">
+                <div
+                  className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{
+                    backgroundColor: "rgba(30,144,255,0.1)",
+                    border: "1px solid rgba(30,144,255,0.2)",
+                    color: "#1E90FF",
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold mb-0.5" style={{ fontFamily: "var(--font-inter)", color: "white" }}>
+                    Financial Markets Fundamentals
+                  </p>
+                  <p className="text-xs" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}>
+                    Credit Markets 101 presentation + 10-question quiz
+                  </p>
+                </div>
+              </div>
+              <div
+                className="inline-flex items-center gap-1.5 text-xs font-medium transition-all duration-200 group-hover:gap-3 flex-shrink-0"
+                style={{ fontFamily: "var(--font-space-mono)", color: "#1E90FF" }}
               >
-                Coming soon
-              </span>
-            </div>
+                Enter
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </div>
+            </Link>
           </div>
         </section>
 
