@@ -13,7 +13,7 @@ const steps = [
     id: "presentations" as const,
     title: "Presentations",
     description: "Work through the training decks on ratings workflow and processes.",
-    href: "/presentations?team=ratings",
+    href: "/presentations/ratings-101",
     available: true,
   },
   {

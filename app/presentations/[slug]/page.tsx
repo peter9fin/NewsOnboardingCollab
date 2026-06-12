@@ -18,6 +18,14 @@ export default async function PresentationViewerPage({
 
   if (!deck || !deck.embedUrl) notFound();
 
+  const teamLabels: Record<string, string> = {
+    "9news": "9news",
+    "ratings": "Ratings",
+    "newsapp": "NewsApp",
+  };
+  const backHref = deck.team ? `/${deck.team}` : "/";
+  const backLabel = deck.team ? (teamLabels[deck.team] ?? deck.team) : "Portal";
+
   return (
     <div
       className="min-h-screen flex flex-col relative overflow-x-hidden"
@@ -76,7 +84,7 @@ export default async function PresentationViewerPage({
         <div className="px-6 pt-10 pb-6 max-w-6xl mx-auto w-full">
           <nav aria-label="breadcrumb" className="flex items-center gap-2 mb-6">
             <Link
-              href="/presentations"
+              href={backHref}
               className="text-xs transition-opacity hover:opacity-100 opacity-60 inline-flex items-center gap-1.5"
               style={{
                 fontFamily: "var(--font-space-mono)",
@@ -98,7 +106,7 @@ export default async function PresentationViewerPage({
                 <line x1="19" y1="12" x2="5" y2="12" />
                 <polyline points="12 19 5 12 12 5" />
               </svg>
-              Presentations
+              {backLabel}
             </Link>
             <span
               className="text-xs"
