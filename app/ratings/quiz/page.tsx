@@ -711,11 +711,11 @@ function DecisionFlowchart() {
         fill={flFill} stroke={flStk} strokeWidth="1.5" />
       <text x={oX + oW / 2} y={d1CY - 7} textAnchor="middle"
         fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
-        ⚠ Flag: Incorrect
+        Remove article
       </text>
       <text x={oX + oW / 2} y={d1CY + 9} textAnchor="middle"
         fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
-        Entity Match
+        from profile
       </text>
 
       {/* D1 YES → D2 */}
@@ -731,11 +731,11 @@ function DecisionFlowchart() {
         fill={dFill} stroke={dStroke} strokeWidth="1.5" />
       <text x={dCX} y={d2Y + 22} textAnchor="middle"
         fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
-        Instruments mentioned
+        Debt instrument ratings
       </text>
       <text x={dCX} y={d2Y + 39} textAnchor="middle"
         fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
-        beyond CFR?
+        mentioned?
       </text>
 
       {/* D2 NO → done outcome */}
@@ -745,16 +745,16 @@ function DecisionFlowchart() {
         fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
         NO
       </text>
-      {/* done box */}
+      {/* check CFR box */}
       <rect x={oX} y={d2CY - oH / 2} width={oW} height={oH} rx={oRX}
-        fill={dnFill} stroke={dnStk} strokeWidth="1.5" />
+        fill={acFill} stroke={acStk} strokeWidth="1.5" />
       <text x={oX + oW / 2} y={d2CY - 7} textAnchor="middle"
-        fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
-        CFR only —
+        fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        Check CFR rating
       </text>
       <text x={oX + oW / 2} y={d2CY + 9} textAnchor="middle"
-        fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
-        no action needed ✓
+        fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        against profile
       </text>
 
       {/* D2 YES → D3 */}
@@ -774,7 +774,7 @@ function DecisionFlowchart() {
       </text>
       <text x={dCX} y={d3Y + 39} textAnchor="middle"
         fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
-        present (unpriced)?
+        present?
       </text>
 
       {/* D3 NO → done outcome */}
