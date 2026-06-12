@@ -536,6 +536,8 @@ export default function RatingsQuizPage() {
 // ─── Help Modal ───────────────────────────────────────────────────────────────
 
 function HelpModal({ onClose }: { onClose: () => void }) {
+  const [branch, setBranch] = useState<"green" | "red">("green");
+
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-4"
@@ -562,22 +564,40 @@ function HelpModal({ onClose }: { onClose: () => void }) {
               Article Decision Guide
             </h2>
             <p className="text-xs mt-0.5" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}>
-              Auto-published articles — follow top to bottom
+              {branch === "green" ? "Auto-published articles" : "Not auto-published articles"} — follow top to bottom
             </p>
           </div>
-          <div className="flex items-center gap-3">
-            <span
-              className="inline-flex items-center gap-1.5 text-[10px] tracking-wide px-2 py-1 rounded-full"
-              style={{
-                fontFamily: "var(--font-space-mono)",
-                color: "#22c55e",
-                backgroundColor: "rgba(34,197,94,0.1)",
-                border: "1px solid rgba(34,197,94,0.2)",
-              }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#22c55e" }} />
-              GREEN
-            </span>
+
+          <div className="flex items-center gap-2">
+            {/* Branch tabs */}
+            <div className="flex rounded-lg overflow-hidden" style={{ border: "1px solid rgba(30,144,255,0.2)" }}>
+              <button
+                onClick={() => setBranch("green")}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-bold tracking-wide transition-colors"
+                style={{
+                  fontFamily: "var(--font-space-mono)",
+                  color: branch === "green" ? "#0A1628" : "#22c55e",
+                  backgroundColor: branch === "green" ? "#22c55e" : "transparent",
+                }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: branch === "green" ? "#0A1628" : "#22c55e" }} />
+                GREEN
+              </button>
+              <button
+                onClick={() => setBranch("red")}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-bold tracking-wide transition-colors"
+                style={{
+                  fontFamily: "var(--font-space-mono)",
+                  color: branch === "red" ? "#0A1628" : "#ef4444",
+                  backgroundColor: branch === "red" ? "#ef4444" : "transparent",
+                  borderLeft: "1px solid rgba(30,144,255,0.2)",
+                }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: branch === "red" ? "#0A1628" : "#ef4444" }} />
+                RED
+              </button>
+            </div>
+
             <button
               onClick={onClose}
               className="p-1.5 rounded-lg transition-colors hover:bg-[rgba(255,255,255,0.06)]"
@@ -592,14 +612,14 @@ function HelpModal({ onClose }: { onClose: () => void }) {
 
         {/* Flowchart */}
         <div className="overflow-y-auto px-5 py-6">
-          <DecisionFlowchart />
+          {branch === "green" ? <DecisionFlowchart /> : <RedFlowchart />}
         </div>
       </div>
     </div>
   );
 }
 
-// ─── SVG Flowchart ────────────────────────────────────────────────────────────
+// ─── Green SVG Flowchart ─────────────────────────────────────────────────────
 
 function DecisionFlowchart() {
   // ── Layout constants ──────────────────────────────────────────────────────
@@ -666,7 +686,7 @@ function DecisionFlowchart() {
       aria-label="Ratings article decision flowchart"
     >
       <defs>
-        <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+        <marker id="arr-g" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
           <path d="M0,0 L0,7 L7,3.5 z" fill={spine} />
         </marker>
       </defs>
@@ -685,7 +705,7 @@ function DecisionFlowchart() {
 
       {/* start → D1 */}
       <line x1={dCX} y1={startY + startH} x2={dCX} y2={d1Y - 2}
-        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
 
       {/* ── DECISION 1 ───────────────────────────────────────────────── */}
       <rect x={dX} y={d1Y} width={dW} height={d1H} rx={dRX}
@@ -701,7 +721,7 @@ function DecisionFlowchart() {
 
       {/* D1 NO → flag outcome */}
       <line x1={dX + dW} y1={d1CY} x2={oX - 3} y2={d1CY}
-        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
       <text x={dX + dW + 9} y={d1CY - 6}
         fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
         NO
@@ -724,7 +744,7 @@ function DecisionFlowchart() {
 
       {/* D1 YES → D2 */}
       <line x1={dCX} y1={d1Y + d1H} x2={dCX} y2={d2Y - 2}
-        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
       <text x={dCX + 8} y={d1Y + d1H + 30}
         fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
         YES
@@ -744,7 +764,7 @@ function DecisionFlowchart() {
 
       {/* D2 NO → done outcome */}
       <line x1={dX + dW} y1={d2CY} x2={oX - 3} y2={d2CY}
-        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
       <text x={dX + dW + 9} y={d2CY - 6}
         fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
         NO
@@ -767,7 +787,7 @@ function DecisionFlowchart() {
 
       {/* D2 YES → D3 */}
       <line x1={dCX} y1={d2Y + d2H} x2={dCX} y2={d3Y - 2}
-        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
       <text x={dCX + 8} y={d2Y + d2H + 30}
         fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
         YES
@@ -787,7 +807,7 @@ function DecisionFlowchart() {
 
       {/* D3 NO → done outcome */}
       <line x1={dX + dW} y1={d3CY} x2={oX - 3} y2={d3CY}
-        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
       <text x={dX + dW + 9} y={d3CY - 6}
         fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
         NO
@@ -810,7 +830,7 @@ function DecisionFlowchart() {
 
       {/* D3 YES → action */}
       <line x1={dCX} y1={d3Y + d3H} x2={dCX} y2={actY - 2}
-        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
       <text x={dCX + 8} y={d3Y + d3H + 30}
         fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
         YES
@@ -830,6 +850,165 @@ function DecisionFlowchart() {
       <text x={dCX} y={actY + 51} textAnchor="middle"
         fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>
         ✅ React in Slack
+      </text>
+    </svg>
+  );
+}
+
+// ─── Red SVG Flowchart ────────────────────────────────────────────────────────
+
+function RedFlowchart() {
+  const SVG_W = 430;
+
+  // Decision box (left column)
+  const dCX = 115;
+  const dX  = 15;
+  const dW  = 200;
+  const dRX = 10;
+
+  // YES outcome box (right column)
+  const oX  = 240;
+  const oW  = 176;
+  const oRX = 8;
+
+  // Y positions
+  const startY = 8;  const startH = 36;
+  const d1Y    = 72; const d1H   = 90;   // taller: holds sub-instruction
+  const d1CY   = d1Y + d1H / 2;          // 117
+
+  // YES outcome box — tall, starts level with decision box
+  const yesY = d1Y;
+  const yesH = 108;
+
+  // NO connector + box below decision
+  const noBoxY = d1Y + d1H + 28;         // 190
+  const noBoxH = 58;
+
+  const SVG_H = noBoxY + noBoxH + 14;    // 262
+
+  // ── Colours ────────────────────────────────────────────────────────────────
+  const spine   = "rgba(30,144,255,0.35)";
+  const dFill   = "rgba(30,144,255,0.08)";
+  const dStroke = "rgba(30,144,255,0.28)";
+  const dText   = "rgba(255,255,255,0.9)";
+
+  const flFill  = "rgba(249,115,22,0.12)";
+  const flStk   = "rgba(249,115,22,0.5)";
+  const flTxt   = "#fb923c";
+
+  const acFill  = "rgba(34,197,94,0.13)";
+  const acStk   = "rgba(34,197,94,0.45)";
+  const acTxt   = "#4ade80";
+
+  const yesClr  = "#4ade80";
+  const noClr   = "#f87171";
+
+  const mono = "ui-monospace, monospace";
+  const sans = "ui-sans-serif, system-ui, sans-serif";
+
+  return (
+    <svg
+      viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+      width="100%"
+      aria-label="Red (not auto-published) article decision flowchart"
+    >
+      <defs>
+        <marker id="arr-r" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+          <path d="M0,0 L0,7 L7,3.5 z" fill={spine} />
+        </marker>
+      </defs>
+
+      {/* ── START bubble (red tint) ───────────────────────────────────── */}
+      <rect x={dX} y={startY} width={dW} height={startH} rx={startH / 2}
+        fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.45)" strokeWidth="1.5" />
+      <text x={dCX} y={startY + 14} textAnchor="middle"
+        fill="#f87171" fontSize="9.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        NOT AUTO-PUBLISHED
+      </text>
+      <text x={dCX} y={startY + 27} textAnchor="middle"
+        fill="rgba(255,255,255,0.45)" fontSize="9.5" fontFamily={sans}>
+        article received
+      </text>
+
+      {/* start → D1 */}
+      <line x1={dCX} y1={startY + startH} x2={dCX} y2={d1Y - 2}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-r)" />
+
+      {/* ── DECISION: Company in 9fin universe? ──────────────────────── */}
+      <rect x={dX} y={d1Y} width={dW} height={d1H} rx={dRX}
+        fill={dFill} stroke={dStroke} strokeWidth="1.5" />
+      {/* Main question */}
+      <text x={dCX} y={d1Y + 24} textAnchor="middle"
+        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
+        Company in
+      </text>
+      <text x={dCX} y={d1Y + 40} textAnchor="middle"
+        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
+        9fin universe?
+      </text>
+      {/* Divider */}
+      <line x1={dX + 16} y1={d1Y + 52} x2={dX + dW - 16} y2={d1Y + 52}
+        stroke="rgba(30,144,255,0.18)" strokeWidth="1" />
+      {/* Sub-instruction */}
+      <text x={dCX} y={d1Y + 66} textAnchor="middle"
+        fill="rgba(255,255,255,0.45)" fontSize="9" fontFamily={sans}>
+        Search all aliases mentioned
+      </text>
+      <text x={dCX} y={d1Y + 79} textAnchor="middle"
+        fill="rgba(255,255,255,0.45)" fontSize="9" fontFamily={sans}>
+        in article on 9fin
+      </text>
+
+      {/* ── YES → action box (right) ──────────────────────────────────── */}
+      <line x1={dX + dW} y1={d1CY} x2={oX - 3} y2={d1CY}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-r)" />
+      <text x={dX + dW + 9} y={d1CY - 6}
+        fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        YES
+      </text>
+
+      {/* Action box */}
+      <rect x={oX} y={yesY} width={oW} height={yesH} rx={oRX}
+        fill={acFill} stroke={acStk} strokeWidth="1.5" />
+      <text x={oX + oW / 2} y={yesY + 18} textAnchor="middle"
+        fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        Post article to profile
+      </text>
+      <text x={oX + oW / 2} y={yesY + 34} textAnchor="middle"
+        fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        Update rating on profile
+      </text>
+      <text x={oX + oW / 2} y={yesY + 50} textAnchor="middle"
+        fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        Add alias on 9admin
+      </text>
+      <line x1={oX + 10} y1={yesY + 62} x2={oX + oW - 10} y2={yesY + 62}
+        stroke="rgba(34,197,94,0.2)" strokeWidth="1" />
+      <text x={oX + oW / 2} y={yesY + 80} textAnchor="middle"
+        fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>
+        ✅ React in Slack
+      </text>
+
+      {/* ── NO → disregard (below) ────────────────────────────────────── */}
+      <line x1={dCX} y1={d1Y + d1H} x2={dCX} y2={noBoxY - 2}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-r)" />
+      <text x={dCX + 8} y={d1Y + d1H + 18}
+        fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        NO
+      </text>
+
+      {/* Disregard box */}
+      <rect x={dX} y={noBoxY} width={dW} height={noBoxH} rx={dRX}
+        fill={flFill} stroke={flStk} strokeWidth="1.5" />
+      <text x={dCX} y={noBoxY + 20} textAnchor="middle"
+        fill={flTxt} fontSize="11" fontWeight="700" fontFamily={sans}>
+        Disregard article
+      </text>
+      <line x1={dX + 16} y1={noBoxY + 32} x2={dX + dW - 16} y2={noBoxY + 32}
+        stroke="rgba(249,115,22,0.2)" strokeWidth="1" />
+      <text x={dCX} y={noBoxY + 48} textAnchor="middle"
+        fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>
+        ⛔ React in Slack
       </text>
     </svg>
   );
