@@ -615,14 +615,14 @@ function DecisionFlowchart() {
   const oX = 240;
   const oW = 176;
   const oRX = 8;
-  const oH = 40;
+  const oH = 58;
 
   // Row Y positions
   const startY = 8;  const startH = 36;
   const d1Y    = 72; const d1H   = 56;
   const d2Y    = 178; const d2H  = 56;
   const d3Y    = 284; const d3H  = 56;
-  const actY   = 384; const actH = 48;
+  const actY   = 384; const actH = 62;
 
   const d1CY = d1Y + d1H / 2;   // 100
   const d2CY = d2Y + d2H / 2;   // 206
@@ -709,13 +709,17 @@ function DecisionFlowchart() {
       {/* flag box */}
       <rect x={oX} y={d1CY - oH / 2} width={oW} height={oH} rx={oRX}
         fill={flFill} stroke={flStk} strokeWidth="1.5" />
-      <text x={oX + oW / 2} y={d1CY - 7} textAnchor="middle"
+      <text x={oX + oW / 2} y={d1CY - 15} textAnchor="middle"
         fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
         Remove article
       </text>
-      <text x={oX + oW / 2} y={d1CY + 9} textAnchor="middle"
+      <text x={oX + oW / 2} y={d1CY + 1} textAnchor="middle"
         fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
         from profile
+      </text>
+      <text x={oX + oW / 2} y={d1CY + 18} textAnchor="middle"
+        fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>
+        ⛔ React in Slack
       </text>
 
       {/* D1 YES → D2 */}
@@ -748,13 +752,17 @@ function DecisionFlowchart() {
       {/* check CFR box */}
       <rect x={oX} y={d2CY - oH / 2} width={oW} height={oH} rx={oRX}
         fill={acFill} stroke={acStk} strokeWidth="1.5" />
-      <text x={oX + oW / 2} y={d2CY - 7} textAnchor="middle"
+      <text x={oX + oW / 2} y={d2CY - 15} textAnchor="middle"
         fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
         Check CFR rating —
       </text>
-      <text x={oX + oW / 2} y={d2CY + 9} textAnchor="middle"
+      <text x={oX + oW / 2} y={d2CY + 1} textAnchor="middle"
         fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
         update where necessary
+      </text>
+      <text x={oX + oW / 2} y={d2CY + 18} textAnchor="middle"
+        fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>
+        ✅ React in Slack
       </text>
 
       {/* D2 YES → D3 */}
@@ -787,13 +795,17 @@ function DecisionFlowchart() {
       {/* done box */}
       <rect x={oX} y={d3CY - oH / 2} width={oW} height={oH} rx={oRX}
         fill={dnFill} stroke={dnStk} strokeWidth="1.5" />
-      <text x={oX + oW / 2} y={d3CY - 7} textAnchor="middle"
+      <text x={oX + oW / 2} y={d3CY - 15} textAnchor="middle"
         fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
         All priced —
       </text>
-      <text x={oX + oW / 2} y={d3CY + 9} textAnchor="middle"
+      <text x={oX + oW / 2} y={d3CY + 1} textAnchor="middle"
         fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
         no action needed ✓
+      </text>
+      <text x={oX + oW / 2} y={d3CY + 18} textAnchor="middle"
+        fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>
+        ✅ React in Slack
       </text>
 
       {/* D3 YES → action */}
@@ -807,13 +819,17 @@ function DecisionFlowchart() {
       {/* ── ACTION outcome ────────────────────────────────────────────── */}
       <rect x={dX} y={actY} width={dW} height={actH} rx={dRX}
         fill={acFill} stroke={acStk} strokeWidth="1.5" />
-      <text x={dCX} y={actY + 18} textAnchor="middle"
+      <text x={dCX} y={actY + 16} textAnchor="middle"
         fill={acTxt} fontSize="12" fontWeight="700" fontFamily={sans}>
         ✓ Update in-market
       </text>
-      <text x={dCX} y={actY + 35} textAnchor="middle"
+      <text x={dCX} y={actY + 33} textAnchor="middle"
         fill={acTxt} fontSize="12" fontWeight="700" fontFamily={sans}>
         instrument ratings
+      </text>
+      <text x={dCX} y={actY + 51} textAnchor="middle"
+        fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>
+        ✅ React in Slack
       </text>
     </svg>
   );
