@@ -19,9 +19,9 @@ const steps = [
   {
     id: "training" as const,
     title: "Test Your Knowledge",
-    description: "Exercises to assess your ratings knowledge.",
-    href: "#",
-    available: false,
+    description: "8-question quiz covering ratings methodology, the scale, outlooks, CFR vs instrument, and why ratings matter on 9fin.",
+    href: "/ratings/quiz",
+    available: true,
   },
 ];
 

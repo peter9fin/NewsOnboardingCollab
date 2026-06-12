@@ -50,4 +50,12 @@ export const presentations: Presentation[] = [
     tag: "Finance",
     embedUrl: null,
   },
+  {
+    slug: "ratings-101",
+    title: "Ratings 101",
+    description: "What credit ratings measure, the three agencies, reading the scale, outlooks & watch, CFR vs instrument, and why ratings matter on 9fin.",
+    tag: "Ratings",
+    embedUrl:
+      "https://docs.google.com/presentation/d/10-8HDEW8namGnbPy1qc7UjyC6JEmCjQglhKYnsCDtYM/embed?start=false&loop=false&delayms=3000",
+  },
 ];
