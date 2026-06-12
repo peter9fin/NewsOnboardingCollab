@@ -3,6 +3,27 @@
 import { useState } from "react";
 import Link from "next/link";
 
+// ─── Green-branch decision flow ───────────────────────────────────────────────
+
+const GREEN_FLOW_STEPS = [
+  {
+    question:
+      "Has the article crawled to the correct company? Does the article refer to the company it has been published to?",
+    noOutcome: { label: "Flag: Incorrect Entity Match", type: "flag" as const },
+  },
+  {
+    question:
+      "Does the article mention debt instruments beyond just a CFR rating?",
+    noOutcome: { label: "CFR only — no instrument action needed", type: "done" as const },
+  },
+  {
+    question:
+      "Does the company have any debt instruments currently in market (not yet priced)?",
+    noOutcome: { label: "All instruments priced — no action needed", type: "done" as const },
+    yesOutcome: { label: "Update the in-market instrument ratings", type: "action" as const },
+  },
+];
+
 const QUESTIONS = [
   {
     question: "A credit rating is best described as:",
@@ -109,6 +130,7 @@ export default function RatingsQuizPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [answers, setAnswers] = useState<{ correct: boolean; selected: number }[]>([]);
+  const [helpOpen, setHelpOpen] = useState(false);
 
   const question = QUESTIONS[currentIndex];
   const isAnswered = selected !== null;
@@ -160,6 +182,9 @@ export default function RatingsQuizPage() {
           background: "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15, 60, 180, 0.5) 0%, transparent 65%)",
         }}
       />
+
+      {/* Decision guide modal */}
+      {helpOpen && <HelpModal onClose={() => setHelpOpen(false)} />}
 
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Navbar */}
@@ -280,9 +305,25 @@ export default function RatingsQuizPage() {
                   <span className="text-xs" style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}>
                     Question {currentIndex + 1} of {QUESTIONS.length}
                   </span>
-                  <span className="text-xs" style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}>
-                    {answers.filter((a) => a.correct).length} correct
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs" style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}>
+                      {answers.filter((a) => a.correct).length} correct
+                    </span>
+                    <button
+                      onClick={() => setHelpOpen(true)}
+                      className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full transition-colors hover:bg-[rgba(30,144,255,0.12)]"
+                      style={{
+                        fontFamily: "var(--font-space-mono)",
+                        color: "#1E90FF",
+                        border: "1px solid rgba(30,144,255,0.25)",
+                      }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" />
+                      </svg>
+                      Decision Guide
+                    </button>
+                  </div>
                 </div>
                 <div className="w-full rounded-full h-1" style={{ backgroundColor: "rgba(30,144,255,0.12)" }}>
                   <div
@@ -509,6 +550,194 @@ export default function RatingsQuizPage() {
           9fin Onboarding © 2026
         </footer>
       </div>
+    </div>
+  );
+}
+
+// ─── Outcome chip colours ─────────────────────────────────────────────────────
+
+const OUTCOME_STYLES = {
+  flag:   { color: "#f97316", bg: "rgba(249,115,22,0.1)",  border: "rgba(249,115,22,0.25)" },
+  done:   { color: "#1E90FF", bg: "rgba(30,144,255,0.1)",  border: "rgba(30,144,255,0.25)" },
+  action: { color: "#22c55e", bg: "rgba(34,197,94,0.1)",   border: "rgba(34,197,94,0.25)"  },
+} as const;
+
+// ─── Help Modal ───────────────────────────────────────────────────────────────
+
+function HelpModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      style={{ backgroundColor: "rgba(0,0,0,0.75)", backdropFilter: "blur(6px)" }}
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-lg max-h-[85vh] flex flex-col rounded-2xl overflow-hidden"
+        style={{
+          background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)",
+          border: "1px solid rgba(30,144,255,0.25)",
+          boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div
+          className="flex items-center justify-between px-6 py-4 border-b flex-shrink-0"
+          style={{ borderColor: "rgba(30,144,255,0.15)" }}
+        >
+          <div>
+            <h2
+              className="text-base font-bold"
+              style={{ fontFamily: "var(--font-inter)", color: "white" }}
+            >
+              Article Decision Guide
+            </h2>
+            <p
+              className="text-xs mt-0.5"
+              style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}
+            >
+              Auto-published articles — follow steps top to bottom
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            {/* Green badge */}
+            <span
+              className="inline-flex items-center gap-1.5 text-[10px] tracking-wide px-2 py-1 rounded-full"
+              style={{
+                fontFamily: "var(--font-space-mono)",
+                color: "#22c55e",
+                backgroundColor: "rgba(34,197,94,0.1)",
+                border: "1px solid rgba(34,197,94,0.2)",
+              }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#22c55e" }} />
+              GREEN
+            </span>
+            <button
+              onClick={onClose}
+              className="p-1.5 rounded-lg transition-colors hover:bg-[rgba(255,255,255,0.06)]"
+              style={{ color: "rgba(204,204,204,0.5)" }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Flowchart */}
+        <div className="overflow-y-auto px-6 py-5 space-y-1">
+          {GREEN_FLOW_STEPS.map((step, i) => {
+            const hasYes = "yesOutcome" in step && step.yesOutcome;
+            const hasNo  = "noOutcome"  in step && step.noOutcome;
+
+            return (
+              <div key={i}>
+                {/* Decision box */}
+                <div
+                  className="rounded-xl px-4 py-3.5 flex items-start gap-3"
+                  style={{
+                    backgroundColor: "rgba(30,144,255,0.07)",
+                    border: "1px solid rgba(30,144,255,0.18)",
+                  }}
+                >
+                  <span
+                    className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5"
+                    style={{
+                      backgroundColor: "rgba(30,144,255,0.15)",
+                      border: "1px solid rgba(30,144,255,0.3)",
+                      color: "#1E90FF",
+                    }}
+                  >
+                    {i + 1}
+                  </span>
+                  <p
+                    className="text-sm leading-snug"
+                    style={{ fontFamily: "var(--font-inter)", color: "rgba(255,255,255,0.85)" }}
+                  >
+                    {step.question}
+                  </p>
+                </div>
+
+                {/* Branch row */}
+                <div className="flex items-stretch gap-2 mt-1 ml-4">
+                  <div
+                    className="w-px self-stretch"
+                    style={{ backgroundColor: "rgba(30,144,255,0.15)", marginLeft: "6px" }}
+                  />
+                  <div className="flex-1 flex flex-col gap-1 py-1">
+                    {/* YES row */}
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="text-[10px] font-bold tracking-wide px-1.5 py-0.5 rounded flex-shrink-0"
+                        style={{
+                          fontFamily: "var(--font-space-mono)",
+                          color: "#22c55e",
+                          backgroundColor: "rgba(34,197,94,0.1)",
+                        }}
+                      >
+                        YES
+                      </span>
+                      {hasYes ? (
+                        <OutcomeChip outcome={step.yesOutcome!} />
+                      ) : (
+                        <span className="text-xs" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.4)" }}>
+                          Continue ↓
+                        </span>
+                      )}
+                    </div>
+
+                    {/* NO row */}
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="text-[10px] font-bold tracking-wide px-1.5 py-0.5 rounded flex-shrink-0"
+                        style={{
+                          fontFamily: "var(--font-space-mono)",
+                          color: "#ef4444",
+                          backgroundColor: "rgba(239,68,68,0.1)",
+                        }}
+                      >
+                        NO
+                      </span>
+                      {hasNo ? (
+                        <OutcomeChip outcome={step.noOutcome!} />
+                      ) : (
+                        <span className="text-xs" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.4)" }}>
+                          Continue ↓
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          <div className="h-2" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Outcome chip ─────────────────────────────────────────────────────────────
+
+function OutcomeChip({
+  outcome,
+}: {
+  outcome: { label: string; type: "flag" | "done" | "action" };
+}) {
+  const s = OUTCOME_STYLES[outcome.type];
+  return (
+    <div
+      className="rounded-lg px-3 py-1.5 text-xs font-semibold"
+      style={{
+        fontFamily: "var(--font-inter)",
+        color: s.color,
+        backgroundColor: s.bg,
+        border: `1px solid ${s.border}`,
+      }}
+    >
+      → {outcome.label}
     </div>
   );
 }
