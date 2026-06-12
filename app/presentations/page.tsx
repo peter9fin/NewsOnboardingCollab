@@ -2,11 +2,17 @@ import Link from "next/link";
 import { presentations } from "./data";
 import CompletionFooter from "@/app/components/CompletionFooter";
 
-export default function PresentationsPage({
+export default async function PresentationsPage({
   searchParams,
 }: {
   searchParams?: Promise<{ team?: string }>;
 }) {
+  const params = searchParams ? await searchParams : {};
+  const team = (params as { team?: string }).team ?? null;
+  const filtered = team
+    ? presentations.filter((p) => p.team === team)
+    : presentations;
+
   return (
     <div
       className="min-h-screen flex flex-col relative overflow-x-hidden"
@@ -110,7 +116,7 @@ export default function PresentationsPage({
         {/* Grid */}
         <section className="flex-1 px-6 pb-24">
           <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {presentations.map((deck) => (
+            {filtered.map((deck) => (
               <PresentationCard key={deck.slug} deck={deck} />
             ))}
           </div>
