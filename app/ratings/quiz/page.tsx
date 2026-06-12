@@ -3,27 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 
-// ─── Green-branch decision flow ───────────────────────────────────────────────
-
-const GREEN_FLOW_STEPS = [
-  {
-    question:
-      "Has the article crawled to the correct company? Does the article refer to the company it has been published to?",
-    noOutcome: { label: "Flag: Incorrect Entity Match", type: "flag" as const },
-  },
-  {
-    question:
-      "Does the article mention debt instruments beyond just a CFR rating?",
-    noOutcome: { label: "CFR only — no instrument action needed", type: "done" as const },
-  },
-  {
-    question:
-      "Does the company have any debt instruments currently in market (not yet priced)?",
-    noOutcome: { label: "All instruments priced — no action needed", type: "done" as const },
-    yesOutcome: { label: "Update the in-market instrument ratings", type: "action" as const },
-  },
-];
-
 const QUESTIONS = [
   {
     question: "A credit rating is best described as:",
@@ -554,29 +533,22 @@ export default function RatingsQuizPage() {
   );
 }
 
-// ─── Outcome chip colours ─────────────────────────────────────────────────────
-
-const OUTCOME_STYLES = {
-  flag:   { color: "#f97316", bg: "rgba(249,115,22,0.1)",  border: "rgba(249,115,22,0.25)" },
-  done:   { color: "#1E90FF", bg: "rgba(30,144,255,0.1)",  border: "rgba(30,144,255,0.25)" },
-  action: { color: "#22c55e", bg: "rgba(34,197,94,0.1)",   border: "rgba(34,197,94,0.25)"  },
-} as const;
-
 // ─── Help Modal ───────────────────────────────────────────────────────────────
 
 function HelpModal({ onClose }: { onClose: () => void }) {
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-      style={{ backgroundColor: "rgba(0,0,0,0.75)", backdropFilter: "blur(6px)" }}
+      style={{ backgroundColor: "rgba(0,0,0,0.78)", backdropFilter: "blur(6px)" }}
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg max-h-[85vh] flex flex-col rounded-2xl overflow-hidden"
+        className="relative w-full max-w-xl flex flex-col rounded-2xl overflow-hidden"
         style={{
           background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)",
           border: "1px solid rgba(30,144,255,0.25)",
-          boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
+          boxShadow: "0 24px 80px rgba(0,0,0,0.65)",
+          maxHeight: "90vh",
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -586,21 +558,14 @@ function HelpModal({ onClose }: { onClose: () => void }) {
           style={{ borderColor: "rgba(30,144,255,0.15)" }}
         >
           <div>
-            <h2
-              className="text-base font-bold"
-              style={{ fontFamily: "var(--font-inter)", color: "white" }}
-            >
+            <h2 className="text-base font-bold" style={{ fontFamily: "var(--font-inter)", color: "white" }}>
               Article Decision Guide
             </h2>
-            <p
-              className="text-xs mt-0.5"
-              style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}
-            >
-              Auto-published articles — follow steps top to bottom
+            <p className="text-xs mt-0.5" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}>
+              Auto-published articles — follow top to bottom
             </p>
           </div>
           <div className="flex items-center gap-3">
-            {/* Green badge */}
             <span
               className="inline-flex items-center gap-1.5 text-[10px] tracking-wide px-2 py-1 rounded-full"
               style={{
@@ -626,118 +591,230 @@ function HelpModal({ onClose }: { onClose: () => void }) {
         </div>
 
         {/* Flowchart */}
-        <div className="overflow-y-auto px-6 py-5 space-y-1">
-          {GREEN_FLOW_STEPS.map((step, i) => {
-            const hasYes = "yesOutcome" in step && step.yesOutcome;
-            const hasNo  = "noOutcome"  in step && step.noOutcome;
-
-            return (
-              <div key={i}>
-                {/* Decision box */}
-                <div
-                  className="rounded-xl px-4 py-3.5 flex items-start gap-3"
-                  style={{
-                    backgroundColor: "rgba(30,144,255,0.07)",
-                    border: "1px solid rgba(30,144,255,0.18)",
-                  }}
-                >
-                  <span
-                    className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5"
-                    style={{
-                      backgroundColor: "rgba(30,144,255,0.15)",
-                      border: "1px solid rgba(30,144,255,0.3)",
-                      color: "#1E90FF",
-                    }}
-                  >
-                    {i + 1}
-                  </span>
-                  <p
-                    className="text-sm leading-snug"
-                    style={{ fontFamily: "var(--font-inter)", color: "rgba(255,255,255,0.85)" }}
-                  >
-                    {step.question}
-                  </p>
-                </div>
-
-                {/* Branch row */}
-                <div className="flex items-stretch gap-2 mt-1 ml-4">
-                  <div
-                    className="w-px self-stretch"
-                    style={{ backgroundColor: "rgba(30,144,255,0.15)", marginLeft: "6px" }}
-                  />
-                  <div className="flex-1 flex flex-col gap-1 py-1">
-                    {/* YES row */}
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="text-[10px] font-bold tracking-wide px-1.5 py-0.5 rounded flex-shrink-0"
-                        style={{
-                          fontFamily: "var(--font-space-mono)",
-                          color: "#22c55e",
-                          backgroundColor: "rgba(34,197,94,0.1)",
-                        }}
-                      >
-                        YES
-                      </span>
-                      {hasYes ? (
-                        <OutcomeChip outcome={step.yesOutcome!} />
-                      ) : (
-                        <span className="text-xs" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.4)" }}>
-                          Continue ↓
-                        </span>
-                      )}
-                    </div>
-
-                    {/* NO row */}
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="text-[10px] font-bold tracking-wide px-1.5 py-0.5 rounded flex-shrink-0"
-                        style={{
-                          fontFamily: "var(--font-space-mono)",
-                          color: "#ef4444",
-                          backgroundColor: "rgba(239,68,68,0.1)",
-                        }}
-                      >
-                        NO
-                      </span>
-                      {hasNo ? (
-                        <OutcomeChip outcome={step.noOutcome!} />
-                      ) : (
-                        <span className="text-xs" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.4)" }}>
-                          Continue ↓
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-          <div className="h-2" />
+        <div className="overflow-y-auto px-5 py-6">
+          <DecisionFlowchart />
         </div>
       </div>
     </div>
   );
 }
 
-// ─── Outcome chip ─────────────────────────────────────────────────────────────
+// ─── SVG Flowchart ────────────────────────────────────────────────────────────
 
-function OutcomeChip({
-  outcome,
-}: {
-  outcome: { label: string; type: "flag" | "done" | "action" };
-}) {
-  const s = OUTCOME_STYLES[outcome.type];
+function DecisionFlowchart() {
+  // ── Layout constants ──────────────────────────────────────────────────────
+  const SVG_W = 430;
+
+  // Decision boxes (left column, centered at cx=115)
+  const dCX = 115;
+  const dX = 15;
+  const dW = 200;
+  const dRX = 10;
+
+  // Outcome boxes (right column)
+  const oX = 240;
+  const oW = 176;
+  const oRX = 8;
+  const oH = 40;
+
+  // Row Y positions
+  const startY = 8;  const startH = 36;
+  const d1Y    = 72; const d1H   = 56;
+  const d2Y    = 178; const d2H  = 56;
+  const d3Y    = 284; const d3H  = 56;
+  const actY   = 384; const actH = 48;
+
+  const d1CY = d1Y + d1H / 2;   // 100
+  const d2CY = d2Y + d2H / 2;   // 206
+  const d3CY = d3Y + d3H / 2;   // 312
+
+  const SVG_H = actY + actH + 14;  // 446
+
+  // ── Colours ───────────────────────────────────────────────────────────────
+  const spine   = "rgba(30,144,255,0.35)";
+  const dFill   = "rgba(30,144,255,0.08)";
+  const dStroke = "rgba(30,144,255,0.28)";
+  const dText   = "rgba(255,255,255,0.9)";
+
+  // Outcome: flag (orange)
+  const flFill  = "rgba(249,115,22,0.12)";
+  const flStk   = "rgba(249,115,22,0.5)";
+  const flTxt   = "#fb923c";
+
+  // Outcome: done (blue)
+  const dnFill  = "rgba(30,144,255,0.1)";
+  const dnStk   = "rgba(30,144,255,0.4)";
+  const dnTxt   = "#60a5fa";
+
+  // Outcome: action (green)
+  const acFill  = "rgba(34,197,94,0.13)";
+  const acStk   = "rgba(34,197,94,0.45)";
+  const acTxt   = "#4ade80";
+
+  // YES / NO label colours
+  const yesClr  = "#4ade80";
+  const noClr   = "#f87171";
+
+  // Shared text props
+  const mono = "ui-monospace, monospace";
+  const sans = "ui-sans-serif, system-ui, sans-serif";
+
   return (
-    <div
-      className="rounded-lg px-3 py-1.5 text-xs font-semibold"
-      style={{
-        fontFamily: "var(--font-inter)",
-        color: s.color,
-        backgroundColor: s.bg,
-        border: `1px solid ${s.border}`,
-      }}
+    <svg
+      viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+      width="100%"
+      aria-label="Ratings article decision flowchart"
     >
-      → {outcome.label}
-    </div>
+      <defs>
+        <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+          <path d="M0,0 L0,7 L7,3.5 z" fill={spine} />
+        </marker>
+      </defs>
+
+      {/* ── START bubble ─────────────────────────────────────────────── */}
+      <rect x={dX} y={startY} width={dW} height={startH} rx={startH / 2}
+        fill={acFill} stroke={acStk} strokeWidth="1.5" />
+      <text x={dCX} y={startY + 14} textAnchor="middle"
+        fill={acTxt} fontSize="9.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        AUTO-PUBLISHED ARTICLE
+      </text>
+      <text x={dCX} y={startY + 27} textAnchor="middle"
+        fill="rgba(255,255,255,0.45)" fontSize="9.5" fontFamily={sans}>
+        received in Slack feed
+      </text>
+
+      {/* start → D1 */}
+      <line x1={dCX} y1={startY + startH} x2={dCX} y2={d1Y - 2}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+
+      {/* ── DECISION 1 ───────────────────────────────────────────────── */}
+      <rect x={dX} y={d1Y} width={dW} height={d1H} rx={dRX}
+        fill={dFill} stroke={dStroke} strokeWidth="1.5" />
+      <text x={dCX} y={d1Y + 22} textAnchor="middle"
+        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
+        Crawled to the
+      </text>
+      <text x={dCX} y={d1Y + 39} textAnchor="middle"
+        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
+        correct company?
+      </text>
+
+      {/* D1 NO → flag outcome */}
+      <line x1={dX + dW} y1={d1CY} x2={oX - 3} y2={d1CY}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+      <text x={dX + dW + 9} y={d1CY - 6}
+        fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        NO
+      </text>
+      {/* flag box */}
+      <rect x={oX} y={d1CY - oH / 2} width={oW} height={oH} rx={oRX}
+        fill={flFill} stroke={flStk} strokeWidth="1.5" />
+      <text x={oX + oW / 2} y={d1CY - 7} textAnchor="middle"
+        fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        ⚠ Flag: Incorrect
+      </text>
+      <text x={oX + oW / 2} y={d1CY + 9} textAnchor="middle"
+        fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        Entity Match
+      </text>
+
+      {/* D1 YES → D2 */}
+      <line x1={dCX} y1={d1Y + d1H} x2={dCX} y2={d2Y - 2}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+      <text x={dCX + 8} y={d1Y + d1H + 30}
+        fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        YES
+      </text>
+
+      {/* ── DECISION 2 ───────────────────────────────────────────────── */}
+      <rect x={dX} y={d2Y} width={dW} height={d2H} rx={dRX}
+        fill={dFill} stroke={dStroke} strokeWidth="1.5" />
+      <text x={dCX} y={d2Y + 22} textAnchor="middle"
+        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
+        Instruments mentioned
+      </text>
+      <text x={dCX} y={d2Y + 39} textAnchor="middle"
+        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
+        beyond CFR?
+      </text>
+
+      {/* D2 NO → done outcome */}
+      <line x1={dX + dW} y1={d2CY} x2={oX - 3} y2={d2CY}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+      <text x={dX + dW + 9} y={d2CY - 6}
+        fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        NO
+      </text>
+      {/* done box */}
+      <rect x={oX} y={d2CY - oH / 2} width={oW} height={oH} rx={oRX}
+        fill={dnFill} stroke={dnStk} strokeWidth="1.5" />
+      <text x={oX + oW / 2} y={d2CY - 7} textAnchor="middle"
+        fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        CFR only —
+      </text>
+      <text x={oX + oW / 2} y={d2CY + 9} textAnchor="middle"
+        fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        no action needed ✓
+      </text>
+
+      {/* D2 YES → D3 */}
+      <line x1={dCX} y1={d2Y + d2H} x2={dCX} y2={d3Y - 2}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+      <text x={dCX + 8} y={d2Y + d2H + 30}
+        fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        YES
+      </text>
+
+      {/* ── DECISION 3 ───────────────────────────────────────────────── */}
+      <rect x={dX} y={d3Y} width={dW} height={d3H} rx={dRX}
+        fill={dFill} stroke={dStroke} strokeWidth="1.5" />
+      <text x={dCX} y={d3Y + 22} textAnchor="middle"
+        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
+        In-market instruments
+      </text>
+      <text x={dCX} y={d3Y + 39} textAnchor="middle"
+        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
+        present (unpriced)?
+      </text>
+
+      {/* D3 NO → done outcome */}
+      <line x1={dX + dW} y1={d3CY} x2={oX - 3} y2={d3CY}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+      <text x={dX + dW + 9} y={d3CY - 6}
+        fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        NO
+      </text>
+      {/* done box */}
+      <rect x={oX} y={d3CY - oH / 2} width={oW} height={oH} rx={oRX}
+        fill={dnFill} stroke={dnStk} strokeWidth="1.5" />
+      <text x={oX + oW / 2} y={d3CY - 7} textAnchor="middle"
+        fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        All priced —
+      </text>
+      <text x={oX + oW / 2} y={d3CY + 9} textAnchor="middle"
+        fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
+        no action needed ✓
+      </text>
+
+      {/* D3 YES → action */}
+      <line x1={dCX} y1={d3Y + d3H} x2={dCX} y2={actY - 2}
+        stroke={spine} strokeWidth="1.5" markerEnd="url(#arr)" />
+      <text x={dCX + 8} y={d3Y + d3H + 30}
+        fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">
+        YES
+      </text>
+
+      {/* ── ACTION outcome ────────────────────────────────────────────── */}
+      <rect x={dX} y={actY} width={dW} height={actH} rx={dRX}
+        fill={acFill} stroke={acStk} strokeWidth="1.5" />
+      <text x={dCX} y={actY + 18} textAnchor="middle"
+        fill={acTxt} fontSize="12" fontWeight="700" fontFamily={sans}>
+        ✓ Update in-market
+      </text>
+      <text x={dCX} y={actY + 35} textAnchor="middle"
+        fill={acTxt} fontSize="12" fontWeight="700" fontFamily={sans}>
+        instrument ratings
+      </text>
+    </svg>
   );
 }
