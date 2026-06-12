@@ -750,11 +750,11 @@ function DecisionFlowchart() {
         fill={acFill} stroke={acStk} strokeWidth="1.5" />
       <text x={oX + oW / 2} y={d2CY - 7} textAnchor="middle"
         fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
-        Check CFR rating
+        Check CFR rating —
       </text>
       <text x={oX + oW / 2} y={d2CY + 9} textAnchor="middle"
         fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>
-        against profile
+        update where necessary
       </text>
 
       {/* D2 YES → D3 */}
@@ -769,12 +769,12 @@ function DecisionFlowchart() {
       <rect x={dX} y={d3Y} width={dW} height={d3H} rx={dRX}
         fill={dFill} stroke={dStroke} strokeWidth="1.5" />
       <text x={dCX} y={d3Y + 22} textAnchor="middle"
-        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
-        In-market instruments
+        fill={dText} fontSize="11.5" fontWeight="600" fontFamily={sans}>
+        Check 9fin profile for
       </text>
       <text x={dCX} y={d3Y + 39} textAnchor="middle"
-        fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>
-        present?
+        fill={dText} fontSize="11.5" fontWeight="600" fontFamily={sans}>
+        {`"in-market" instruments`}
       </text>
 
       {/* D3 NO → done outcome */}
