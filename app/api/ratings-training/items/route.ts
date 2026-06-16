@@ -3,9 +3,13 @@ import fs from "fs";
 import path from "path";
 
 export interface RatingsTrainingItem {
+  slackType: "exchange-link" | "no-company-found";
+  agency: string;   // "moodys" | "s&p" | "fitch" — for exchange-link
+  articleId: string; // numeric string — for exchange-link display
   title: string;
+  correctAnswer: string; // "publish"|"ignore" | "cfr"|"instruments"|"remove"
   company: string;
-  correctAnswer: "Publish" | "Ignore";
+  explanation: string;
 }
 
 function parseCSVLine(line: string): string[] {
@@ -36,6 +40,9 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+const VALID_TYPES = new Set(["exchange-link", "no-company-found"]);
+const VALID_ANSWERS = new Set(["publish", "ignore", "cfr", "instruments", "remove"]);
+
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
   const count = Math.min(parseInt(searchParams.get("count") ?? "10", 10), 50);
@@ -45,21 +52,34 @@ export async function GET(request: NextRequest) {
   const lines = content.split("\n").filter((l) => l.trim());
 
   const headers = parseCSVLine(lines[0]);
+  const slackTypeIdx = headers.indexOf("Slack Type");
+  const agencyIdx = headers.indexOf("Agency");
+  const articleIdIdx = headers.indexOf("Article ID");
   const titleIdx = headers.indexOf("Article Title");
-  const actionIdx = headers.indexOf("Action");
+  const answerIdx = headers.indexOf("Correct Answer");
   const companyIdx = headers.indexOf("Company");
+  const explanationIdx = headers.indexOf("Explanation");
 
   const items: RatingsTrainingItem[] = lines
     .slice(1)
     .map((line) => {
       const v = parseCSVLine(line);
       return {
+        slackType: (v[slackTypeIdx] ?? "") as RatingsTrainingItem["slackType"],
+        agency: v[agencyIdx] ?? "",
+        articleId: v[articleIdIdx] ?? "",
         title: v[titleIdx] ?? "",
+        correctAnswer: v[answerIdx] ?? "",
         company: v[companyIdx] ?? "",
-        correctAnswer: (v[actionIdx] ?? "") as "Publish" | "Ignore",
+        explanation: v[explanationIdx] ?? "",
       };
     })
-    .filter((item) => item.title && (item.correctAnswer === "Publish" || item.correctAnswer === "Ignore"));
+    .filter(
+      (item) =>
+        item.title &&
+        VALID_TYPES.has(item.slackType) &&
+        VALID_ANSWERS.has(item.correctAnswer)
+    );
 
   const selected = shuffle(items).slice(0, count);
   return Response.json({ items: selected });
