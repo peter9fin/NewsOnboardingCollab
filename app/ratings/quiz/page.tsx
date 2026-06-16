@@ -221,8 +221,29 @@ function QuestionScreen({ item, index, total, selectedAnswer, score, onAnswer, o
       {/* Slack message card */}
       <SlackMessage item={item} />
 
+      {/* 9fin lookup link */}
+      <div className="flex items-center gap-3 mt-3 mb-5">
+        <a
+          href="https://9fin.com/dashboard"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full transition-all hover:brightness-110"
+          style={{ fontFamily: "var(--font-inter)", backgroundColor: "rgba(30,144,255,0.1)", border: "1px solid rgba(30,144,255,0.3)", color: "#1E90FF" }}
+        >
+          Search on 9fin
+          <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+          </svg>
+        </a>
+        {item.company && (
+          <span className="text-xs" style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.4)" }}>
+            search: <span style={{ color: "rgba(204,204,204,0.7)" }}>{item.company}</span>
+          </span>
+        )}
+      </div>
+
       {/* Question */}
-      <p className="text-sm font-medium mb-4 mt-6" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.75)" }}>
+      <p className="text-sm font-medium mb-4" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.75)" }}>
         {item.slackType === "exchange-link"
           ? "This article has been auto-published. What action is required?"
           : "The system couldn't find a company match. What should you do?"}
