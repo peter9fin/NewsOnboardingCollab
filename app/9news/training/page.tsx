@@ -7,34 +7,10 @@ import { saveTrainingAttempt, markStepComplete } from "@/lib/progress";
 
 const SESSION_SIZE = 10;
 
-const PUBLISH_OPTIONS = [
-  { value: "Publish", label: "Publish" },
-  { value: "Publish Silently", label: "Publish Silently" },
-  { value: "Edit & Publish", label: "Edit & Publish" },
-  { value: "Publish as Calendar Event", label: "Calendar Event" },
-  { value: "Publish as Results Event", label: "Results Event" },
-];
-
-const REJECT_OPTIONS = [
-  { value: "Irrelevant Content", label: "Irrelevant Content" },
-  { value: "Duplicate", label: "Duplicate" },
-  { value: "Incorrect Entity Match", label: "Incorrect Entity" },
-];
-
-const ALL_OPTIONS = [...PUBLISH_OPTIONS, ...REJECT_OPTIONS];
-
 const FLOW_STEPS = [
   {
     question: "Is the article relevant to 9fin's debt/credit market coverage?",
-    noOutcome: { label: "Irrelevant Content", type: "reject" as const },
-  },
-  {
-    question: "Is it matched to the correct company or entity?",
-    noOutcome: { label: "Incorrect Entity Match", type: "reject" as const },
-  },
-  {
-    question: "Is the article already published on 9news?",
-    yesOutcome: { label: "Duplicate", type: "reject" as const },
+    noOutcome: { label: "Irrelevant", type: "reject" as const },
   },
   {
     question: "Is it an earnings or results release?",
@@ -44,14 +20,13 @@ const FLOW_STEPS = [
     question: "Is it a financial calendar event (e.g. AGM, bond maturity, coupon date)?",
     yesOutcome: { label: "Publish as Calendar Event", type: "publish" as const },
   },
-  {
-    question: "Does the article need editing before it's ready to go?",
-    yesOutcome: { label: "Edit & Publish", type: "publish" as const },
-  },
-  {
-    question: "Should it publish without sending alerts to subscribers?",
-    yesOutcome: { label: "Publish Silently", type: "publish" as const },
-  },
+];
+
+const OPTIONS = [
+  { value: "Publish", label: "Publish", type: "publish" as const, desc: "Relevant and ready to go live" },
+  { value: "Publish as Results Event", label: "Publish as Results Event", type: "publish" as const, desc: "Relevant earnings or results item" },
+  { value: "Publish as Calendar Event", label: "Publish as Calendar Event", type: "publish" as const, desc: "Relevant scheduled financial event" },
+  { value: "Irrelevant", label: "Irrelevant", type: "reject" as const, desc: "Not relevant to 9fin's coverage" },
 ];
 
 type Phase = "start" | "question" | "complete";
@@ -102,7 +77,6 @@ export default function NineNewsTraining() {
   const handleNext = useCallback(() => {
     if (currentIndex + 1 >= items.length) {
       setPhase("complete");
-      // Save attempt and mark step complete in Supabase
       const finalScore = answers.filter((a) => a.correct).length;
       saveTrainingAttempt(
         "9news",
@@ -130,29 +104,23 @@ export default function NineNewsTraining() {
       className="min-h-screen flex flex-col relative"
       style={{ backgroundColor: "#0A1628", overflowX: "clip" }}
     >
-      {/* Dot grid */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          backgroundImage:
-            "radial-gradient(rgba(30, 144, 255, 0.07) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(30, 144, 255, 0.07) 1px, transparent 1px)",
           backgroundSize: "28px 28px",
         }}
       />
-      {/* Radial glow */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background:
-            "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15, 60, 180, 0.5) 0%, transparent 65%)",
+          background: "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15, 60, 180, 0.5) 0%, transparent 65%)",
         }}
       />
 
-      {/* Help modal */}
       {helpOpen && <HelpModal onClose={() => setHelpOpen(false)} />}
 
       <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Navbar */}
         <nav
           className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 border-b"
           style={{
@@ -175,10 +143,7 @@ export default function NineNewsTraining() {
           </Link>
           <span
             className="text-xs tracking-[0.2em] uppercase hidden sm:block"
-            style={{
-              fontFamily: "var(--font-space-mono)",
-              color: "rgba(204,204,204,0.55)",
-            }}
+            style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.55)" }}
           >
             9news · Training
           </span>
@@ -244,22 +209,15 @@ function HelpModal({ onClose }: { onClose: () => void }) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div
           className="flex items-center justify-between px-6 py-4 border-b flex-shrink-0"
           style={{ borderColor: "rgba(30,144,255,0.15)" }}
         >
           <div>
-            <h2
-              className="text-base font-bold"
-              style={{ fontFamily: "var(--font-inter)", color: "white" }}
-            >
+            <h2 className="text-base font-bold" style={{ fontFamily: "var(--font-inter)", color: "white" }}>
               Triage Decision Flow
             </h2>
-            <p
-              className="text-xs mt-0.5"
-              style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}
-            >
+            <p className="text-xs mt-0.5" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}>
               Follow this logic top to bottom for each article
             </p>
           </div>
@@ -274,58 +232,37 @@ function HelpModal({ onClose }: { onClose: () => void }) {
           </button>
         </div>
 
-        {/* Flowchart */}
         <div className="overflow-y-auto px-6 py-5 space-y-1">
           {FLOW_STEPS.map((step, i) => {
             const exitOnYes = "yesOutcome" in step;
             const outcome = exitOnYes ? step.yesOutcome : step.noOutcome;
             return (
               <div key={i}>
-                {/* Decision box */}
                 <div
                   className="rounded-xl px-4 py-3.5 flex items-start gap-3"
-                  style={{
-                    backgroundColor: "rgba(30,144,255,0.07)",
-                    border: "1px solid rgba(30,144,255,0.18)",
-                  }}
+                  style={{ backgroundColor: "rgba(30,144,255,0.07)", border: "1px solid rgba(30,144,255,0.18)" }}
                 >
                   <span
                     className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold flex-shrink-0 mt-0.5"
-                    style={{
-                      backgroundColor: "rgba(30,144,255,0.15)",
-                      border: "1px solid rgba(30,144,255,0.3)",
-                      color: "#1E90FF",
-                    }}
+                    style={{ backgroundColor: "rgba(30,144,255,0.15)", border: "1px solid rgba(30,144,255,0.3)", color: "#1E90FF" }}
                   >
                     {i + 1}
                   </span>
-                  <p
-                    className="text-sm leading-snug"
-                    style={{ fontFamily: "var(--font-inter)", color: "rgba(255,255,255,0.85)" }}
-                  >
+                  <p className="text-sm leading-snug" style={{ fontFamily: "var(--font-inter)", color: "rgba(255,255,255,0.85)" }}>
                     {step.question}
                   </p>
                 </div>
 
-                {/* Branch row */}
                 <div className="flex items-stretch gap-2 mt-1 ml-4">
-                  {/* Connector line */}
-                  <div
-                    className="w-px self-stretch"
-                    style={{ backgroundColor: "rgba(30,144,255,0.15)", marginLeft: "6px" }}
-                  />
-
+                  <div className="w-px self-stretch" style={{ backgroundColor: "rgba(30,144,255,0.15)", marginLeft: "6px" }} />
                   <div className="flex-1 flex flex-col gap-1 py-1">
-                    {/* Exit branch */}
                     <div className="flex items-center gap-2">
                       <span
                         className="text-[10px] font-bold tracking-wide px-1.5 py-0.5 rounded flex-shrink-0"
                         style={{
                           fontFamily: "var(--font-space-mono)",
                           color: exitOnYes ? "#22c55e" : "#ef4444",
-                          backgroundColor: exitOnYes
-                            ? "rgba(34,197,94,0.1)"
-                            : "rgba(239,68,68,0.1)",
+                          backgroundColor: exitOnYes ? "rgba(34,197,94,0.1)" : "rgba(239,68,68,0.1)",
                         }}
                       >
                         {exitOnYes ? "YES" : "NO"}
@@ -335,35 +272,25 @@ function HelpModal({ onClose }: { onClose: () => void }) {
                         style={{
                           fontFamily: "var(--font-inter)",
                           color: outcome!.type === "publish" ? "#22c55e" : "#f97316",
-                          backgroundColor:
-                            outcome!.type === "publish"
-                              ? "rgba(34,197,94,0.1)"
-                              : "rgba(249,115,22,0.1)",
+                          backgroundColor: outcome!.type === "publish" ? "rgba(34,197,94,0.1)" : "rgba(249,115,22,0.1)",
                           border: `1px solid ${outcome!.type === "publish" ? "rgba(34,197,94,0.25)" : "rgba(249,115,22,0.25)"}`,
                         }}
                       >
                         → {outcome!.label}
                       </div>
                     </div>
-
-                    {/* Continue branch */}
                     <div className="flex items-center gap-2">
                       <span
                         className="text-[10px] font-bold tracking-wide px-1.5 py-0.5 rounded flex-shrink-0"
                         style={{
                           fontFamily: "var(--font-space-mono)",
                           color: exitOnYes ? "#ef4444" : "#22c55e",
-                          backgroundColor: exitOnYes
-                            ? "rgba(239,68,68,0.1)"
-                            : "rgba(34,197,94,0.1)",
+                          backgroundColor: exitOnYes ? "rgba(239,68,68,0.1)" : "rgba(34,197,94,0.1)",
                         }}
                       >
                         {exitOnYes ? "NO" : "YES"}
                       </span>
-                      <span
-                        className="text-xs"
-                        style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.4)" }}
-                      >
+                      <span className="text-xs" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.4)" }}>
                         Continue ↓
                       </span>
                     </div>
@@ -373,25 +300,15 @@ function HelpModal({ onClose }: { onClose: () => void }) {
             );
           })}
 
-          {/* Final outcome */}
           <div className="flex items-center gap-3 mt-2 pl-4">
-            <div
-              className="w-px h-6 flex-shrink-0"
-              style={{ backgroundColor: "rgba(30,144,255,0.15)", marginLeft: "6px" }}
-            />
+            <div className="w-px h-6 flex-shrink-0" style={{ backgroundColor: "rgba(30,144,255,0.15)", marginLeft: "6px" }} />
             <div
               className="rounded-lg px-4 py-2 text-sm font-bold"
-              style={{
-                fontFamily: "var(--font-inter)",
-                color: "#22c55e",
-                backgroundColor: "rgba(34,197,94,0.12)",
-                border: "1px solid rgba(34,197,94,0.3)",
-              }}
+              style={{ fontFamily: "var(--font-inter)", color: "#22c55e", backgroundColor: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)" }}
             >
               → Publish
             </div>
           </div>
-
           <div className="h-2" />
         </div>
       </div>
@@ -401,21 +318,12 @@ function HelpModal({ onClose }: { onClose: () => void }) {
 
 // ─── Start Screen ─────────────────────────────────────────────────────────────
 
-function StartScreen({
-  loading,
-  onStart,
-}: {
-  loading: boolean;
-  onStart: () => void;
-}) {
+function StartScreen({ loading, onStart }: { loading: boolean; onStart: () => void }) {
   return (
     <div className="w-full max-w-lg text-center">
       <div
         className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 mb-8"
-        style={{
-          borderColor: "rgba(30, 144, 255, 0.35)",
-          backgroundColor: "rgba(30, 144, 255, 0.07)",
-        }}
+        style={{ borderColor: "rgba(30, 144, 255, 0.35)", backgroundColor: "rgba(30, 144, 255, 0.07)" }}
       >
         <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#1E90FF" }} />
         <span
@@ -436,72 +344,41 @@ function StartScreen({
         className="text-base leading-relaxed mb-10"
         style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.7)" }}
       >
-        You&apos;ll be shown {SESSION_SIZE} real news headlines from the 9news
-        feed. For each one, decide how it should be triaged. Your answers will
-        be compared against actual editorial decisions.
+        You&apos;ll be shown {SESSION_SIZE} real news headlines. For each one,
+        decide how it should be triaged. Your answers will be compared against
+        actual editorial decisions.
       </p>
 
-      {/* Option legend */}
-      <div className="mb-10 text-left space-y-4">
-        <div>
-          <p
-            className="text-xs tracking-[0.18em] uppercase mb-2.5 flex items-center gap-2"
-            style={{ fontFamily: "var(--font-space-mono)", color: "#22c55e" }}
+      <div className="mb-10 text-left space-y-2">
+        {OPTIONS.map((opt) => (
+          <div
+            key={opt.value}
+            className="rounded-lg px-4 py-3 flex items-center gap-3"
+            style={{
+              background: opt.type === "publish" ? "rgba(34,197,94,0.05)" : "rgba(239,68,68,0.05)",
+              border: `1px solid ${opt.type === "publish" ? "rgba(34,197,94,0.15)" : "rgba(239,68,68,0.15)"}`,
+            }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] inline-block" />
-            Publish Actions
-          </p>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              ["Publish", "Article is relevant and ready to go"],
-              ["Publish Silently", "Relevant but no subscriber alert needed"],
-              ["Edit & Publish", "Needs editing before going live"],
-              ["Calendar Event", "Relevant scheduled financial event"],
-              ["Results Event", "Relevant earnings or results item"],
-            ].map(([label, desc]) => (
-              <div
-                key={label}
-                className="rounded-lg px-3 py-2.5"
-                style={{
-                  background: "rgba(34,197,94,0.05)",
-                  border: "1px solid rgba(34,197,94,0.15)",
-                }}
+            <span
+              className="w-2 h-2 rounded-full flex-shrink-0"
+              style={{ backgroundColor: opt.type === "publish" ? "#22c55e" : "#ef4444" }}
+            />
+            <div>
+              <p
+                className="text-sm font-semibold"
+                style={{ fontFamily: "var(--font-inter)", color: opt.type === "publish" ? "rgba(134,239,172,0.9)" : "rgba(252,165,165,0.9)" }}
               >
-                <p className="text-xs font-semibold mb-0.5" style={{ fontFamily: "var(--font-inter)", color: "rgba(134,239,172,0.9)" }}>{label}</p>
-                <p className="text-xs leading-relaxed" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.45)" }}>{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <p
-            className="text-xs tracking-[0.18em] uppercase mb-2.5 flex items-center gap-2"
-            style={{ fontFamily: "var(--font-space-mono)", color: "#f97316" }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#f97316] inline-block" />
-            Reject Actions
-          </p>
-          <div className="grid grid-cols-2 gap-2">
-            {[
-              ["Irrelevant Content", "Not relevant to 9fin's coverage"],
-              ["Duplicate", "Already covered by another article"],
-              ["Incorrect Entity", "Wrong company or entity matched"],
-            ].map(([label, desc]) => (
-              <div
-                key={label}
-                className="rounded-lg px-3 py-2.5"
-                style={{
-                  background: "rgba(249,115,22,0.05)",
-                  border: "1px solid rgba(249,115,22,0.15)",
-                }}
+                {opt.label}
+              </p>
+              <p
+                className="text-xs"
+                style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.45)" }}
               >
-                <p className="text-xs font-semibold mb-0.5" style={{ fontFamily: "var(--font-inter)", color: "rgba(253,186,116,0.9)" }}>{label}</p>
-                <p className="text-xs leading-relaxed" style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.45)" }}>{desc}</p>
-              </div>
-            ))}
+                {opt.desc}
+              </p>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
 
       <button
@@ -568,15 +445,10 @@ function QuestionScreen({
           >
             {score} correct
           </span>
-          {/* Help button */}
           <button
             onClick={onHelp}
             className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full transition-colors hover:bg-[rgba(30,144,255,0.12)]"
-            style={{
-              fontFamily: "var(--font-space-mono)",
-              color: "#1E90FF",
-              border: "1px solid rgba(30,144,255,0.25)",
-            }}
+            style={{ fontFamily: "var(--font-space-mono)", color: "#1E90FF", border: "1px solid rgba(30,144,255,0.25)" }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" />
@@ -630,82 +502,59 @@ function QuestionScreen({
       {/* Feedback banner */}
       {answered && (
         <div
-          className="rounded-lg px-4 py-3 mb-5 flex items-center gap-3"
+          className="rounded-xl px-5 py-4 mb-5"
           style={{
-            backgroundColor: isCorrect ? "rgba(34,197,94,0.1)" : "rgba(239,68,68,0.1)",
-            border: `1px solid ${isCorrect ? "rgba(34,197,94,0.3)" : "rgba(239,68,68,0.3)"}`,
+            backgroundColor: isCorrect ? "rgba(34,197,94,0.08)" : "rgba(239,68,68,0.08)",
+            border: `1px solid ${isCorrect ? "rgba(34,197,94,0.25)" : "rgba(239,68,68,0.25)"}`,
           }}
         >
-          <span style={{ fontSize: "18px" }}>{isCorrect ? "✓" : "✗"}</span>
-          <div>
-            <p
-              className="text-sm font-semibold"
-              style={{ fontFamily: "var(--font-inter)", color: isCorrect ? "#22c55e" : "#ef4444" }}
-            >
-              {isCorrect ? "Correct!" : "Not quite"}
-            </p>
-            {!isCorrect && (
+          <div className="flex items-center gap-2.5 mb-2">
+            <span style={{ fontSize: "16px" }}>{isCorrect ? "✓" : "✗"}</span>
+            <div>
               <p
-                className="text-xs mt-0.5"
-                style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.6)" }}
+                className="text-sm font-semibold"
+                style={{ fontFamily: "var(--font-inter)", color: isCorrect ? "#22c55e" : "#ef4444" }}
               >
-                The correct answer was{" "}
-                <span style={{ color: "white", fontWeight: 600 }}>{item.correctAnswer}</span>
+                {isCorrect ? "Correct!" : "Not quite"}
               </p>
-            )}
+              {!isCorrect && (
+                <p
+                  className="text-xs mt-0.5"
+                  style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.6)" }}
+                >
+                  The correct answer was{" "}
+                  <span style={{ color: "white", fontWeight: 600 }}>{item.correctAnswer}</span>
+                </p>
+              )}
+            </div>
           </div>
+          {item.reasoning && (
+            <p
+              className="text-xs leading-relaxed pt-2"
+              style={{
+                fontFamily: "var(--font-inter)",
+                color: "rgba(204,204,204,0.65)",
+                borderTop: "1px solid rgba(255,255,255,0.06)",
+              }}
+            >
+              {item.reasoning}
+            </p>
+          )}
         </div>
       )}
 
-      {/* Answer groups */}
-      <div className="space-y-4 mb-6">
-        {/* Publish group */}
-        <div>
-          <p
-            className="text-[10px] tracking-[0.18em] uppercase mb-2 flex items-center gap-1.5"
-            style={{ fontFamily: "var(--font-space-mono)", color: "#22c55e" }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#22c55e] inline-block" />
-            Publish
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {PUBLISH_OPTIONS.map((opt) => (
-              <AnswerButton
-                key={opt.value}
-                opt={opt}
-                type="publish"
-                answered={answered}
-                selectedAnswer={selectedAnswer}
-                correctAnswer={item.correctAnswer}
-                onAnswer={onAnswer}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Reject group */}
-        <div>
-          <p
-            className="text-[10px] tracking-[0.18em] uppercase mb-2 flex items-center gap-1.5"
-            style={{ fontFamily: "var(--font-space-mono)", color: "#f97316" }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#f97316] inline-block" />
-            Reject
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {REJECT_OPTIONS.map((opt) => (
-              <AnswerButton
-                key={opt.value}
-                opt={opt}
-                type="reject"
-                answered={answered}
-                selectedAnswer={selectedAnswer}
-                correctAnswer={item.correctAnswer}
-                onAnswer={onAnswer}
-              />
-            ))}
-          </div>
-        </div>
+      {/* Answer buttons */}
+      <div className="grid grid-cols-2 gap-2 mb-6">
+        {OPTIONS.map((opt) => (
+          <AnswerButton
+            key={opt.value}
+            opt={opt}
+            answered={answered}
+            selectedAnswer={selectedAnswer}
+            correctAnswer={item.correctAnswer}
+            onAnswer={onAnswer}
+          />
+        ))}
       </div>
 
       {/* Next button */}
@@ -731,14 +580,12 @@ function QuestionScreen({
 
 function AnswerButton({
   opt,
-  type,
   answered,
   selectedAnswer,
   correctAnswer,
   onAnswer,
 }: {
-  opt: { value: string; label: string };
-  type: "publish" | "reject";
+  opt: { value: string; label: string; type: "publish" | "reject" };
   answered: boolean;
   selectedAnswer: string | null;
   correctAnswer: string;
@@ -747,10 +594,9 @@ function AnswerButton({
   const isSelected = selectedAnswer === opt.value;
   const isCorrectOpt = opt.value === correctAnswer;
 
-  // Default (pre-answer) colours per group
-  const defaultBg = type === "publish" ? "rgba(34,197,94,0.06)" : "rgba(249,115,22,0.06)";
-  const defaultBorder = type === "publish" ? "rgba(34,197,94,0.2)" : "rgba(249,115,22,0.2)";
-  const defaultColor = type === "publish" ? "rgba(134,239,172,0.85)" : "rgba(253,186,116,0.85)";
+  const defaultBg = opt.type === "publish" ? "rgba(34,197,94,0.06)" : "rgba(239,68,68,0.06)";
+  const defaultBorder = opt.type === "publish" ? "rgba(34,197,94,0.2)" : "rgba(239,68,68,0.2)";
+  const defaultColor = opt.type === "publish" ? "rgba(134,239,172,0.85)" : "rgba(252,165,165,0.85)";
 
   let bg = defaultBg;
   let border = defaultBorder;
@@ -775,12 +621,10 @@ function AnswerButton({
     <button
       onClick={() => onAnswer(opt.value)}
       disabled={answered}
-      className="rounded-lg px-3 py-2.5 text-left text-xs font-medium transition-all duration-150 disabled:cursor-default"
+      className="rounded-lg px-4 py-3 text-left text-sm font-medium transition-all duration-150 disabled:cursor-default"
       style={{ fontFamily: "var(--font-inter)", backgroundColor: bg, border: `1px solid ${border}`, color, opacity }}
       onMouseEnter={(e) => {
-        if (!answered) {
-          e.currentTarget.style.borderColor = type === "publish" ? "rgba(34,197,94,0.45)" : "rgba(249,115,22,0.45)";
-        }
+        if (!answered) e.currentTarget.style.borderColor = opt.type === "publish" ? "rgba(34,197,94,0.45)" : "rgba(239,68,68,0.45)";
       }}
       onMouseLeave={(e) => {
         if (!answered) e.currentTarget.style.borderColor = defaultBorder;
@@ -884,7 +728,7 @@ function CompleteScreen({
                 >
                   {a.item.title}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-2">
                   <span
                     className="text-[10px] tracking-wide px-2 py-0.5 rounded-full"
                     style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.5)", backgroundColor: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
@@ -916,6 +760,14 @@ function CompleteScreen({
                     </span>
                   )}
                 </div>
+                {a.item.reasoning && (
+                  <p
+                    className="text-xs leading-relaxed"
+                    style={{ fontFamily: "var(--font-inter)", color: "rgba(204,204,204,0.5)" }}
+                  >
+                    {a.item.reasoning}
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -934,6 +786,3 @@ function CompleteScreen({
     </div>
   );
 }
-
-// Keep ALL_OPTIONS exported in case it's needed elsewhere
-export { ALL_OPTIONS };

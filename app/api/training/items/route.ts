@@ -7,6 +7,7 @@ export interface TrainingItem {
   source: string;
   correctAnswer: string;
   triageOutcome: string;
+  reasoning: string;
 }
 
 function parseCSVLine(line: string): string[] {
@@ -56,10 +57,10 @@ export async function GET(request: NextRequest) {
 
   const headers = parseCSVLine(lines[0]);
   const sourceIdx = headers.indexOf("Source Name");
-  const firstActionIdx = headers.indexOf("First Action Decision");
   const lastActionIdx = headers.indexOf("Last Action Decision");
   const outcomeIdx = headers.indexOf("Triage Outcome");
   const titleIdx = headers.indexOf("Article Title");
+  const reasoningIdx = headers.indexOf("Reasoning");
 
   const items: TrainingItem[] = lines
     .slice(1)
@@ -70,7 +71,7 @@ export async function GET(request: NextRequest) {
         source: v[sourceIdx] ?? "",
         correctAnswer: v[lastActionIdx] ?? "",
         triageOutcome: v[outcomeIdx] ?? "",
-        firstAction: v[firstActionIdx] ?? "",
+        reasoning: v[reasoningIdx] ?? "",
       };
     })
     .filter(
@@ -78,13 +79,7 @@ export async function GET(request: NextRequest) {
         item.title &&
         item.correctAnswer &&
         !EXCLUDED_ANSWERS.has(item.correctAnswer)
-    )
-    .map(({ title, source, correctAnswer, triageOutcome }) => ({
-      title,
-      source,
-      correctAnswer,
-      triageOutcome,
-    }));
+    );
 
   const selected = shuffle(items).slice(0, count);
 
