@@ -22,11 +22,11 @@ no-company-found,,,Moody's Ratings affirms Aaa on Ohio Water Development Authori
 no-company-found,,,Fitch Rates Brant Point CLO 2024-3 Ltd. Reset Transaction; Publishes New Issue Report,ignore,,Brant Point CLO is a collateralised loan obligation — structured finance outside 9fin's corporate coverage. React ⛔.
 no-company-found,,,Various Rating Actions Taken On 29 Classes From 7 U.S. CLO Transactions,ignore,,Multiple CLO tranche rating actions — structured finance outside 9fin's scope. React ⛔.
 no-company-found,,,Fitch to Rate CoreVest American Finance 2026-1 Trust; Presale Issued,ignore,,CoreVest is a commercial real estate bridge lender — ABS trust transaction outside 9fin's coverage. React ⛔.
-no-company-found,,,Moody's Ratings affirms ratings of Inecobank CJSC,ignore,,Inecobank is an Armenian commercial bank — retail and commercial banks are outside 9fin's typical leveraged finance scope. React ⛔.
-no-company-found,,,Fitch Affirms Kereskedelmi es Hitelbank Zrt at 'BBB+'; Outlook Negative,ignore,,K&H Bank is a Hungarian retail bank — commercial banks are outside 9fin's coverage. React ⛔.
+no-company-found,,,Moody's Ratings affirms ratings of Inecobank CJSC,ignore,,Inecobank is an Armenian commercial bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Fitch Affirms Kereskedelmi es Hitelbank Zrt at 'BBB+'; Outlook Negative,ignore,,K&H Bank is a Hungarian retail bank — not currently in the 9fin universe. React ⛔.
 no-company-found,,,Moody's Ratings assigns Aaa to Williamson County TN's GO Bonds Series 2026; outlook stable,ignore,,Williamson County Tennessee GO bonds are US municipal debt — outside 9fin's coverage. React ⛔.
 no-company-found,,,Fourteen 'D (sf)' Ratings From Six U.S. CMBS Transactions Discontinued,ignore,,CMBS (commercial mortgage-backed securities) — structured finance outside 9fin's coverage. React ⛔.
-no-company-found,,,Moody's Ratings affirms ratings of Ameriabank CJSC,ignore,,Ameriabank is an Armenian commercial bank — outside 9fin's leveraged finance coverage. React ⛔.
+no-company-found,,,Moody's Ratings affirms ratings of Ameriabank CJSC,ignore,,Ameriabank is an Armenian commercial bank — not currently in the 9fin universe. React ⛔.
 no-company-found,,,Santa Clara Unified School District CA Series 2026 Refunding GO Bonds Assigned 'AAA' Rating,ignore,,US school district GO bond — municipal debt outside 9fin's coverage. React ⛔.
 no-company-found,,,Moody's Ratings assigns Aa3 to Central Florida Expressway Authority FL's Senior Lien Refunding Revenue Bonds,ignore,,Florida toll road authority revenue bonds — government infrastructure outside 9fin's coverage. React ⛔.
 no-company-found,,,Moody's Ratings downgrades Cupertino Union School District CA's issuer rating to Aa3,ignore,,US school district — municipal entity outside 9fin's coverage. React ⛔.
@@ -39,24 +39,24 @@ no-company-found,,,Moody's Ratings assigns Aa1 to Utah Housing Corporation Multi
 no-company-found,,,Moody's Ratings assigns definitive ratings to three CMBS classes of KSL Commercial Mortgage Trust 2026-HT3,ignore,,CMBS structured around hotel properties — structured finance outside 9fin's coverage. React ⛔.
 no-company-found,,,Fitch Rates Sanford Health SD's Tax-Exempt and Taxable CP Notes 'F1+'; Outlook Stable,ignore,,Sanford Health is a non-profit hospital system — healthcare/hospital bonds outside 9fin's leveraged corporate coverage. React ⛔.
 no-company-found,,,Fitch Rates OCP CLO 2026-50 Ltd.; Publishes New Issue Report,ignore,,OCP CLO is a collateralised loan obligation — structured finance outside 9fin's coverage. React ⛔.
-no-company-found,,,Moody's Ratings affirms ratings of ID Bank CJSC,ignore,,ID Bank is a Central Asian commercial bank — outside 9fin's leveraged finance coverage. React ⛔.
+no-company-found,,,Moody's Ratings affirms ratings of ID Bank CJSC,ignore,,ID Bank is a Central Asian commercial bank — not currently in the 9fin universe. React ⛔.
 no-company-found,,,Moody's Ratings takes various rating actions on USD 79.2m CLO notes of Sound Point CLO VI-R Ltd.,ignore,,CLO tranche rating actions — structured finance outside 9fin's coverage. React ⛔.
 no-company-found,,,Fitch Assigns Expected Ratings to GS Mortgage-Backed Notes Series 2026-PJ8,ignore,,Goldman Sachs residential mortgage-backed notes — RMBS structured finance outside 9fin's coverage. React ⛔.
 no-company-found,,,Moody's Ratings assigns provisional ratings to PMT Loan Trust 2026-INV6 Prime RMBS,ignore,,Prime residential mortgage-backed securities — structured finance outside 9fin's coverage. React ⛔.
 no-company-found,,,Fitch Assigns Final Ratings to HOMES 2026-NQM4,ignore,,Non-QM residential mortgage-backed securities — RMBS structured finance outside 9fin's coverage. React ⛔.
 no-company-found,,,Business Jet Securities 2026-1 LLC Notes Assigned Ratings,ignore,,Aviation ABS backed by business jet leases — structured finance outside 9fin's corporate coverage. React ⛔.
-no-company-found,,,Fitch Affirms Zand Bank at 'BBB+'; Outlook Stable,ignore,,Zand Bank is a Dutch digital bank — commercial banks are outside 9fin's leveraged finance scope. React ⛔.
+no-company-found,,,Fitch Affirms Zand Bank at 'BBB+'; Outlook Stable,ignore,,Zand Bank is a Dutch digital bank — not currently in the 9fin universe. React ⛔.
 no-company-found,,,Moody's Ratings assigns a Baa2(hyb) rating to Alm. Brand A/S's Floating Rate Subordinated Callable Tier 2 capital notes,ignore,,Alm. Brand is a Danish insurance company — insurance sector is outside 9fin's coverage. React ⛔.
 no-company-found,,,Fitch Assigns Bavarian Sky UK 8 Plc Expected Ratings,ignore,,Bavarian Sky is a BMW auto loan ABS vehicle — structured finance outside 9fin's scope. React ⛔.
-no-company-found,,,Fitch Affirms Hauck Aufhaeuser Lampe Privatbank AG at 'AA-' on Merger; Withdraws Ratings,ignore,,Hauck Aufhaeuser Lampe is a German private bank — commercial and private banks are outside 9fin's coverage. React ⛔.
+no-company-found,,,Fitch Affirms Hauck Aufhaeuser Lampe Privatbank AG at 'AA-' on Merger; Withdraws Ratings,ignore,,Hauck Aufhaeuser Lampe is a German private bank — not currently in the 9fin universe. React ⛔.
 no-company-found,,,Pierpont BTL 2021-1 PLC UK RMBS Ratings Raised And Removed From CreditWatch Positive,ignore,,UK buy-to-let residential mortgage-backed securities — RMBS structured finance outside 9fin's coverage. React ⛔.
 no-company-found,,,Fitch Affirms Massport's BOSFUEL Rev Bonds at 'A+'; Outlook Stable,ignore,,Massport BOSFUEL is a Massachusetts airport authority revenue bond — public-sector infrastructure outside 9fin's coverage. React ⛔.
-exchange-link,moodys,56736,Moody's affirms Bouygues SA at A3; stable outlook,cfr,Bouygues,Article auto-published to Bouygues SA's profile. Moody's affirmed the A3 Corporate Family Rating — CFR action only, no specific instruments rated. Check and update the CFR on the 9fin profile then ✅ React.
+exchange-link,moodys,56736,Moody's affirms Bouygues SA at A3; stable outlook,cfr,Bouygues,Article auto-published to Bouygues SA's profile. Moody's affirmed the A3 Corporate Family Rating — CFR action only
 exchange-link,s&p,4044,S&P affirms Altice France at B; stable outlook,cfr,Altice France,Article auto-published to Altice France's profile. S&P affirmed the corporate credit rating — CFR action only. Check and update the corporate rating on the profile then ✅ React.
 exchange-link,fitch,1119,Fitch downgrades Lumen Technologies to CCC; outlook negative,cfr,Lumen Technologies,Article auto-published to Lumen Technologies' profile. Fitch downgraded the Issuer Default Rating — CFR action only. Update the IDR on the profile then ✅ React.
-exchange-link,moodys,60362,Moody's upgrades StandardAero to B1; outlook stable,cfr,StandardAero,Article auto-published to StandardAero's profile. Moody's upgraded the Corporate Family Rating — CFR only, no instrument ratings mentioned. Update the CFR on the profile then ✅ React.
+exchange-link,moodys,60362,Moody's upgrades StandardAero to B1; outlook stable,cfr,StandardAero,Article auto-published to StandardAero's profile. Moody's upgraded the Corporate Family Rating — CFR only
 exchange-link,s&p,2939,S&P affirms Telecom Italia at BB-; outlook negative,cfr,Telecom Italia,Article auto-published to Telecom Italia's profile. S&P affirmed the corporate credit rating — CFR action only. Check and update the rating on the profile then ✅ React.
-exchange-link,fitch,1690,Fitch upgrades Ziggo BV to B+; outlook stable,cfr,Ziggo,Article auto-published to Ziggo's profile. Fitch upgraded the Issuer Default Rating — CFR action only, no instruments mentioned. Update the IDR on the profile then ✅ React.
+exchange-link,fitch,1690,Fitch upgrades Ziggo BV to B+; outlook stable,cfr,Ziggo,Article auto-published to Ziggo's profile. Fitch upgraded the Issuer Default Rating — CFR action only
 exchange-link,moodys,3018,Moody's affirms Asurion LLC at B2; outlook stable,cfr,Asurion,Article auto-published to Asurion's profile. Moody's affirmed the Corporate Family Rating — CFR only. Check and update the rating on the 9fin profile then ✅ React.
 exchange-link,s&p,1765,S&P upgrades Arcos Dorados to BB; outlook stable,cfr,Arcos Dorados,Article auto-published to Arcos Dorados' profile. S&P upgraded the corporate credit rating — CFR action only. Update the rating on the profile then ✅ React.
 exchange-link,fitch,826,Fitch assigns 'B+/RR3' to Altice France's new EUR 500M Senior Secured Notes,instruments,Altice France,Article auto-published to Altice France's profile. Fitch assigned a rating to new Senior Secured Notes — instrument action. Check the profile for existing in-market instruments and update the note ratings then ✅ React.
@@ -126,17 +126,17 @@ no-company-found,,,Fitch Assigns Expected Ratings and Outlooks to Sequoia Mortga
 no-company-found,,,Moody's Ratings assigns definitive ratings to four CMBS classes of GGP Commercial Mortgage Trust 2026-SSP,ignore,,Residential mortgage-backed securities (RMBS) — structured finance outside 9fin's coverage. React ⛔.
 no-company-found,,,Moody's Ratings assigns provisional ratings to seventeen CMBS classes of BANK5 2026-5YR23,ignore,,CMBS (commercial mortgage-backed securities) — structured finance outside 9fin's coverage. React ⛔.
 no-company-found,,,Moody's Ratings assigns definitive ratings to five CMBS classes of BIKE 2026-BAND Pass-Through Trust,ignore,,CMBS (commercial mortgage-backed securities) — structured finance outside 9fin's coverage. React ⛔.
-no-company-found,,,"Fitch Assigns Sunny Bank at 'BBB-', Affirms 'A(twn)'; Outlook Stable",ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,Fitch Assigns Final Ratings to BANK5 2026-5YR22,ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,Fitch to Rate BANK5 2026-5YR23; Presale Issued,ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,Moody's Ratings affirms Public Bank (Hong Kong)'s A3/P-2 deposit ratings; outlook stable,ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,"Moody's Ratings affirms the B3 long-term deposit ratings of Sterling Bank Limited, maintains stable outlook",ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,Moody's Ratings affirms Kyongnam Bank's A2/P-1 deposit ratings; outlook remains negative,ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,Fitch Affirms Vakifbank at 'BB-'/Stable,ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,Fitch Affirms Bank of Ayudhya at 'BBB+' and 'AAA(tha)'; Outlook Stable,ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,Moody's Ratings affirms CTBC Bank Corp. (USA) ratings; outlook remains stable,ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,Fitch Affirms Microcreditbank at 'BB'/Positive,ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
-no-company-found,,,Fitch Affirms O-Bank at 'BBB'/'A+(twn)'; Outlook Stable,ignore,,Commercial/retail bank — banks are outside 9fin's leveraged finance scope. React ⛔.
+no-company-found,,,"Fitch Assigns Sunny Bank at 'BBB-', Affirms 'A(twn)'; Outlook Stable",ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Fitch Assigns Final Ratings to BANK5 2026-5YR22,ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Fitch to Rate BANK5 2026-5YR23; Presale Issued,ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Moody's Ratings affirms Public Bank (Hong Kong)'s A3/P-2 deposit ratings; outlook stable,ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,"Moody's Ratings affirms the B3 long-term deposit ratings of Sterling Bank Limited, maintains stable outlook",ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Moody's Ratings affirms Kyongnam Bank's A2/P-1 deposit ratings; outlook remains negative,ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Fitch Affirms Vakifbank at 'BB-'/Stable,ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Fitch Affirms Bank of Ayudhya at 'BBB+' and 'AAA(tha)'; Outlook Stable,ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Moody's Ratings affirms CTBC Bank Corp. (USA) ratings; outlook remains stable,ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Fitch Affirms Microcreditbank at 'BB'/Positive,ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
+no-company-found,,,Fitch Affirms O-Bank at 'BBB'/'A+(twn)'; Outlook Stable,ignore,,Commercial/retail bank — not currently in the 9fin universe. React ⛔.
 no-company-found,,,Moody's Ratings affirms A2 IFSR of Ecclesiastical Insurance Office plc; outlook stable,ignore,,Insurance company — insurance sector is outside 9fin's coverage. React ⛔.
 no-company-found,,,"Moody's Ratings affirms Pohjola Insurance Ltd's A2 IFSR, stable outlook",ignore,,Insurance company — insurance sector is outside 9fin's coverage. React ⛔.
 no-company-found,,,Fitch Affirms Zhonglu Insurance's IFS at 'BBB'; Outlook Stable,ignore,,Insurance company — insurance sector is outside 9fin's coverage. React ⛔.
@@ -197,5 +197,5 @@ no-company-found,,,Fitch Affirms Turkey at 'BB-'; Outlook Positive,publish,Turke
 no-company-found,,,Moody's Ratings affirms Brazil's Ba1 rating; outlook stable,publish,Brazil (Sovereign),Brazil is a sovereign issuer with major USD bond programmes in 9fin's EM coverage. Publish and update.
 no-company-found,,,S&P Upgrades Egypt To 'B'; Outlook Stable On Economic Reforms,publish,Egypt (Sovereign),Egypt is a sovereign issuer with rated USD bonds in 9fin's EM coverage. Publish and update the upgrade.
 no-company-found,,,Moody's Ratings assigns A2 to Bay Area Toll Authority Revenue Bonds Series 2026,ignore,,California toll authority revenue bonds — government transportation infrastructure outside 9fin's coverage. React ⛔.
-no-company-found,,,Fitch Affirms National Australia Bank at 'A+'; Outlook Stable,ignore,,National Australia Bank is a major retail/commercial bank — banks are outside 9fin's leveraged finance scope. React ⛔.
+no-company-found,,,Fitch Affirms National Australia Bank at 'A+'; Outlook Stable,ignore,,National Australia Bank is a major retail/commercial bank — not currently in the 9fin universe. React ⛔.
 no-company-found,,,Various Rating Actions Taken On 15 Classes From 5 European CLO Transactions,ignore,,European CLO tranche rating actions — structured finance outside 9fin's corporate coverage. React ⛔.
