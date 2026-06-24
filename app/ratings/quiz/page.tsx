@@ -534,22 +534,25 @@ function HelpModal({ onClose }: { onClose: () => void }) {
 function GreenFlowchart() {
   const SVG_W = 430;
   const dCX = 115; const dX = 15; const dW = 200; const dRX = 10;
-  const oX = 240; const oW = 176; const oRX = 8; const oH = 58;
-  const startY = 8; const startH = 36;
-  const d1Y = 72; const d1H = 56;
-  const d2Y = 178; const d2H = 56;
-  const d3Y = 284; const d3H = 56;
-  const actY = 384; const actH = 62;
+  const oX = 240; const oW = 176; const oRX = 8; const oH = 72; // taller for clear React label
+
+  // Y positions — CFR update is now a mandatory action step, not a branch outcome
+  const startY = 8;  const startH = 36;
+  const d1Y    = 64; const d1H   = 54;   // Decision: correct company?
+  const cfrY   = 162; const cfrH = 42;   // ACTION (always): update CFR
+  const d2Y    = 252; const d2H  = 54;   // Decision: instrument ratings mentioned?
+  const d3Y    = 356; const d3H  = 54;   // Decision: in-market instruments?
+  const actY   = 458; const actH = 70;   // ACTION: update instruments
+
   const d1CY = d1Y + d1H / 2;
   const d2CY = d2Y + d2H / 2;
   const d3CY = d3Y + d3H / 2;
   const SVG_H = actY + actH + 14;
 
-  const spine = "rgba(30,144,255,0.35)";
-  const dFill = "rgba(30,144,255,0.08)"; const dStroke = "rgba(30,144,255,0.28)"; const dText = "rgba(255,255,255,0.9)";
-  const flFill = "rgba(249,115,22,0.12)"; const flStk = "rgba(249,115,22,0.5)"; const flTxt = "#fb923c";
-  const acFill = "rgba(34,197,94,0.13)"; const acStk = "rgba(34,197,94,0.45)"; const acTxt = "#4ade80";
-  const dnFill = "rgba(30,144,255,0.1)"; const dnStk = "rgba(30,144,255,0.4)"; const dnTxt = "#60a5fa";
+  const spine  = "rgba(30,144,255,0.35)";
+  const dFill  = "rgba(30,144,255,0.08)"; const dStroke = "rgba(30,144,255,0.28)"; const dText = "rgba(255,255,255,0.9)";
+  const flFill = "rgba(249,115,22,0.12)"; const flStk  = "rgba(249,115,22,0.5)";  const flTxt  = "#fb923c";
+  const acFill = "rgba(34,197,94,0.18)";  const acStk  = "rgba(34,197,94,0.6)";   const acTxt  = "#4ade80";
   const yesClr = "#4ade80"; const noClr = "#f87171";
   const mono = "ui-monospace, monospace"; const sans = "ui-sans-serif, system-ui, sans-serif";
 
@@ -561,58 +564,80 @@ function GreenFlowchart() {
         </marker>
       </defs>
 
+      {/* START */}
       <rect x={dX} y={startY} width={dW} height={startH} rx={startH / 2} fill={acFill} stroke={acStk} strokeWidth="1.5" />
       <text x={dCX} y={startY + 14} textAnchor="middle" fill={acTxt} fontSize="9.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">AUTO-PUBLISHED ARTICLE</text>
-      <text x={dCX} y={startY + 27} textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="9.5" fontFamily={sans}>1 new exchange link detected</text>
+      <text x={dCX} y={startY + 27} textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize="9.5" fontFamily={sans}>1 new exchange link detected</text>
 
       <line x1={dCX} y1={startY + startH} x2={dCX} y2={d1Y - 2} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
 
+      {/* D1: correct company? */}
       <rect x={dX} y={d1Y} width={dW} height={d1H} rx={dRX} fill={dFill} stroke={dStroke} strokeWidth="1.5" />
-      <text x={dCX} y={d1Y + 22} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>Crawled to the</text>
-      <text x={dCX} y={d1Y + 39} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>correct company?</text>
+      <text x={dCX} y={d1Y + 21} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>Crawled to the</text>
+      <text x={dCX} y={d1Y + 38} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>correct company?</text>
 
+      {/* D1 NO → remove (orange — wrong company) */}
       <line x1={dX + dW} y1={d1CY} x2={oX - 3} y2={d1CY} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
       <text x={dX + dW + 9} y={d1CY - 6} fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">NO</text>
       <rect x={oX} y={d1CY - oH / 2} width={oW} height={oH} rx={oRX} fill={flFill} stroke={flStk} strokeWidth="1.5" />
-      <text x={oX + oW / 2} y={d1CY - 15} textAnchor="middle" fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>Remove article</text>
-      <text x={oX + oW / 2} y={d1CY + 1} textAnchor="middle" fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>from profile</text>
-      <text x={oX + oW / 2} y={d1CY + 18} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>⛔ React in Slack</text>
+      <text x={oX + oW / 2} y={d1CY - 22} textAnchor="middle" fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>Remove article</text>
+      <text x={oX + oW / 2} y={d1CY - 7} textAnchor="middle" fill={flTxt} fontSize="10" fontWeight="700" fontFamily={sans}>from profile</text>
+      <line x1={oX + 12} y1={d1CY + 6} x2={oX + oW - 12} y2={d1CY + 6} stroke="rgba(249,115,22,0.35)" strokeWidth="1" />
+      <text x={oX + oW / 2} y={d1CY + 25} textAnchor="middle" fill={flTxt} fontSize="11" fontWeight="700" fontFamily={mono}>⛔ React in Slack</text>
 
-      <line x1={dCX} y1={d1Y + d1H} x2={dCX} y2={d2Y - 2} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
-      <text x={dCX + 8} y={d1Y + d1H + 30} fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">YES</text>
+      {/* D1 YES → CFR action (always done) */}
+      <line x1={dCX} y1={d1Y + d1H} x2={dCX} y2={cfrY - 2} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
+      <text x={dCX + 8} y={d1Y + d1H + 22} fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">YES</text>
 
+      {/* MANDATORY ACTION: Update CFR — always done regardless of instruments */}
+      <rect x={dX} y={cfrY} width={dW} height={cfrH} rx={dRX} fill={acFill} stroke={acStk} strokeWidth="1.5" strokeDasharray="5 3" />
+      <text x={dCX} y={cfrY + 16} textAnchor="middle" fill={acTxt} fontSize="11" fontWeight="700" fontFamily={sans}>✓ Always: check &amp; update</text>
+      <text x={dCX} y={cfrY + 31} textAnchor="middle" fill={acTxt} fontSize="11" fontWeight="700" fontFamily={sans}>CFR / IDR on profile</text>
+
+      <line x1={dCX} y1={cfrY + cfrH} x2={dCX} y2={d2Y - 2} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
+
+      {/* D2: instrument ratings mentioned? */}
       <rect x={dX} y={d2Y} width={dW} height={d2H} rx={dRX} fill={dFill} stroke={dStroke} strokeWidth="1.5" />
-      <text x={dCX} y={d2Y + 22} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>Debt instrument ratings</text>
-      <text x={dCX} y={d2Y + 39} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>mentioned?</text>
+      <text x={dCX} y={d2Y + 21} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>Debt instrument ratings</text>
+      <text x={dCX} y={d2Y + 38} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>also mentioned?</text>
 
+      {/* D2 NO → CFR done, react (green) */}
       <line x1={dX + dW} y1={d2CY} x2={oX - 3} y2={d2CY} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
       <text x={dX + dW + 9} y={d2CY - 6} fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">NO</text>
       <rect x={oX} y={d2CY - oH / 2} width={oW} height={oH} rx={oRX} fill={acFill} stroke={acStk} strokeWidth="1.5" />
-      <text x={oX + oW / 2} y={d2CY - 15} textAnchor="middle" fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>Check CFR rating —</text>
-      <text x={oX + oW / 2} y={d2CY + 1} textAnchor="middle" fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>update where necessary</text>
-      <text x={oX + oW / 2} y={d2CY + 18} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>✅ React in Slack</text>
+      <text x={oX + oW / 2} y={d2CY - 22} textAnchor="middle" fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>CFR updated —</text>
+      <text x={oX + oW / 2} y={d2CY - 7} textAnchor="middle" fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>nothing else to do</text>
+      <line x1={oX + 12} y1={d2CY + 6} x2={oX + oW - 12} y2={d2CY + 6} stroke="rgba(34,197,94,0.4)" strokeWidth="1" />
+      <text x={oX + oW / 2} y={d2CY + 25} textAnchor="middle" fill={acTxt} fontSize="11" fontWeight="700" fontFamily={mono}>✅ React in Slack</text>
 
+      {/* D2 YES → D3 */}
       <line x1={dCX} y1={d2Y + d2H} x2={dCX} y2={d3Y - 2} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
-      <text x={dCX + 8} y={d2Y + d2H + 30} fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">YES</text>
+      <text x={dCX + 8} y={d2Y + d2H + 26} fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">YES</text>
 
+      {/* D3: in-market instruments on profile? */}
       <rect x={dX} y={d3Y} width={dW} height={d3H} rx={dRX} fill={dFill} stroke={dStroke} strokeWidth="1.5" />
-      <text x={dCX} y={d3Y + 22} textAnchor="middle" fill={dText} fontSize="11.5" fontWeight="600" fontFamily={sans}>Check 9fin profile for</text>
-      <text x={dCX} y={d3Y + 39} textAnchor="middle" fill={dText} fontSize="11.5" fontWeight="600" fontFamily={sans}>{`"in-market" instruments`}</text>
+      <text x={dCX} y={d3Y + 21} textAnchor="middle" fill={dText} fontSize="11.5" fontWeight="600" fontFamily={sans}>Check 9fin profile for</text>
+      <text x={dCX} y={d3Y + 38} textAnchor="middle" fill={dText} fontSize="11.5" fontWeight="600" fontFamily={sans}>{`"in-market" instruments`}</text>
 
+      {/* D3 NO → all priced (green) */}
       <line x1={dX + dW} y1={d3CY} x2={oX - 3} y2={d3CY} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
       <text x={dX + dW + 9} y={d3CY - 6} fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">NO</text>
-      <rect x={oX} y={d3CY - oH / 2} width={oW} height={oH} rx={oRX} fill={dnFill} stroke={dnStk} strokeWidth="1.5" />
-      <text x={oX + oW / 2} y={d3CY - 15} textAnchor="middle" fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>All priced —</text>
-      <text x={oX + oW / 2} y={d3CY + 1} textAnchor="middle" fill={dnTxt} fontSize="10" fontWeight="700" fontFamily={sans}>no action needed ✓</text>
-      <text x={oX + oW / 2} y={d3CY + 18} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>✅ React in Slack</text>
+      <rect x={oX} y={d3CY - oH / 2} width={oW} height={oH} rx={oRX} fill={acFill} stroke={acStk} strokeWidth="1.5" />
+      <text x={oX + oW / 2} y={d3CY - 22} textAnchor="middle" fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>All priced —</text>
+      <text x={oX + oW / 2} y={d3CY - 7} textAnchor="middle" fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>no instrument update</text>
+      <line x1={oX + 12} y1={d3CY + 6} x2={oX + oW - 12} y2={d3CY + 6} stroke="rgba(34,197,94,0.4)" strokeWidth="1" />
+      <text x={oX + oW / 2} y={d3CY + 25} textAnchor="middle" fill={acTxt} fontSize="11" fontWeight="700" fontFamily={mono}>✅ React in Slack</text>
 
+      {/* D3 YES → update instruments */}
       <line x1={dCX} y1={d3Y + d3H} x2={dCX} y2={actY - 2} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-g)" />
-      <text x={dCX + 8} y={d3Y + d3H + 30} fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">YES</text>
+      <text x={dCX + 8} y={d3Y + d3H + 26} fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">YES</text>
 
+      {/* FINAL ACTION: update instruments (green) */}
       <rect x={dX} y={actY} width={dW} height={actH} rx={dRX} fill={acFill} stroke={acStk} strokeWidth="1.5" />
-      <text x={dCX} y={actY + 16} textAnchor="middle" fill={acTxt} fontSize="12" fontWeight="700" fontFamily={sans}>✓ Update in-market</text>
-      <text x={dCX} y={actY + 33} textAnchor="middle" fill={acTxt} fontSize="12" fontWeight="700" fontFamily={sans}>instrument ratings</text>
-      <text x={dCX} y={actY + 51} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>✅ React in Slack</text>
+      <text x={dCX} y={actY + 15} textAnchor="middle" fill={acTxt} fontSize="12" fontWeight="700" fontFamily={sans}>✓ Update in-market</text>
+      <text x={dCX} y={actY + 31} textAnchor="middle" fill={acTxt} fontSize="12" fontWeight="700" fontFamily={sans}>instrument ratings</text>
+      <line x1={dX + 12} y1={actY + 44} x2={dX + dW - 12} y2={actY + 44} stroke="rgba(34,197,94,0.4)" strokeWidth="1" />
+      <text x={dCX} y={actY + 60} textAnchor="middle" fill={acTxt} fontSize="11" fontWeight="700" fontFamily={mono}>✅ React in Slack</text>
     </svg>
   );
 }
@@ -626,14 +651,14 @@ function RedFlowchart() {
   const startY = 8; const startH = 36;
   const d1Y = 72; const d1H = 90;
   const d1CY = d1Y + d1H / 2;
-  const yesY = d1Y; const yesH = 108;
-  const noBoxY = d1Y + d1H + 28; const noBoxH = 58;
+  const yesY = d1Y; const yesH = 122;   // taller for visible React label
+  const noBoxY = d1Y + d1H + 28; const noBoxH = 72; // taller for visible React label
   const SVG_H = noBoxY + noBoxH + 14;
 
   const spine = "rgba(30,144,255,0.35)";
   const dFill = "rgba(30,144,255,0.08)"; const dStroke = "rgba(30,144,255,0.28)"; const dText = "rgba(255,255,255,0.9)";
   const flFill = "rgba(249,115,22,0.12)"; const flStk = "rgba(249,115,22,0.5)"; const flTxt = "#fb923c";
-  const acFill = "rgba(34,197,94,0.13)"; const acStk = "rgba(34,197,94,0.45)"; const acTxt = "#4ade80";
+  const acFill = "rgba(34,197,94,0.18)"; const acStk = "rgba(34,197,94,0.6)"; const acTxt = "#4ade80";
   const yesClr = "#4ade80"; const noClr = "#f87171";
   const mono = "ui-monospace, monospace"; const sans = "ui-sans-serif, system-ui, sans-serif";
 
@@ -647,7 +672,7 @@ function RedFlowchart() {
 
       <rect x={dX} y={startY} width={dW} height={startH} rx={startH / 2} fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.45)" strokeWidth="1.5" />
       <text x={dCX} y={startY + 14} textAnchor="middle" fill="#f87171" fontSize="9.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">NOT AUTO-PUBLISHED</text>
-      <text x={dCX} y={startY + 27} textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="9.5" fontFamily={sans}>No company found via entity linker</text>
+      <text x={dCX} y={startY + 27} textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize="9.5" fontFamily={sans}>No company found via entity linker</text>
 
       <line x1={dCX} y1={startY + startH} x2={dCX} y2={d1Y - 2} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-r)" />
 
@@ -655,25 +680,28 @@ function RedFlowchart() {
       <text x={dCX} y={d1Y + 24} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>Company in</text>
       <text x={dCX} y={d1Y + 40} textAnchor="middle" fill={dText} fontSize="12" fontWeight="600" fontFamily={sans}>9fin universe?</text>
       <line x1={dX + 16} y1={d1Y + 52} x2={dX + dW - 16} y2={d1Y + 52} stroke="rgba(30,144,255,0.18)" strokeWidth="1" />
-      <text x={dCX} y={d1Y + 66} textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="9" fontFamily={sans}>Search all aliases in article</text>
-      <text x={dCX} y={d1Y + 79} textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize="9" fontFamily={sans}>on 9fin</text>
+      <text x={dCX} y={d1Y + 66} textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize="9" fontFamily={sans}>Search all aliases in article</text>
+      <text x={dCX} y={d1Y + 79} textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize="9" fontFamily={sans}>on 9fin</text>
 
       <line x1={dX + dW} y1={d1CY} x2={oX - 3} y2={d1CY} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-r)" />
       <text x={dX + dW + 9} y={d1CY - 6} fill={yesClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">YES</text>
 
+      {/* YES → publish (green) */}
       <rect x={oX} y={yesY} width={oW} height={yesH} rx={oRX} fill={acFill} stroke={acStk} strokeWidth="1.5" />
       <text x={oX + oW / 2} y={yesY + 18} textAnchor="middle" fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>Post article to profile</text>
       <text x={oX + oW / 2} y={yesY + 34} textAnchor="middle" fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>Update rating on profile</text>
       <text x={oX + oW / 2} y={yesY + 50} textAnchor="middle" fill={acTxt} fontSize="10" fontWeight="700" fontFamily={sans}>Add alias on 9admin</text>
-      <line x1={oX + 10} y1={yesY + 62} x2={oX + oW - 10} y2={yesY + 62} stroke="rgba(34,197,94,0.2)" strokeWidth="1" />
-      <text x={oX + oW / 2} y={yesY + 80} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>✅ React in Slack</text>
+      <line x1={oX + 12} y1={yesY + 66} x2={oX + oW - 12} y2={yesY + 66} stroke="rgba(34,197,94,0.4)" strokeWidth="1" />
+      <text x={oX + oW / 2} y={yesY + 88} textAnchor="middle" fill={acTxt} fontSize="11" fontWeight="700" fontFamily={mono}>✅ React in Slack</text>
 
       <line x1={dCX} y1={d1Y + d1H} x2={dCX} y2={noBoxY - 2} stroke={spine} strokeWidth="1.5" markerEnd="url(#arr-r)" />
       <text x={dCX + 8} y={d1Y + d1H + 18} fill={noClr} fontSize="8.5" fontWeight="700" fontFamily={mono} letterSpacing="0.12em">NO</text>
 
+      {/* NO → disregard (orange) */}
       <rect x={dX} y={noBoxY} width={dW} height={noBoxH} rx={dRX} fill={flFill} stroke={flStk} strokeWidth="1.5" />
       <text x={dCX} y={noBoxY + 22} textAnchor="middle" fill={flTxt} fontSize="12" fontWeight="700" fontFamily={sans}>Disregard</text>
-      <text x={dCX} y={noBoxY + 40} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="9" fontFamily={mono}>⛔ React in Slack</text>
+      <line x1={dX + 12} y1={noBoxY + 36} x2={dX + dW - 12} y2={noBoxY + 36} stroke="rgba(249,115,22,0.35)" strokeWidth="1" />
+      <text x={dCX} y={noBoxY + 56} textAnchor="middle" fill={flTxt} fontSize="11" fontWeight="700" fontFamily={mono}>⛔ React in Slack</text>
     </svg>
   );
 }

@@ -45,7 +45,10 @@ const VALID_ANSWERS = new Set(["publish", "ignore", "cfr", "instruments", "remov
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
-  const count = Math.min(parseInt(searchParams.get("count") ?? "10", 10), 50);
+  const countParam = searchParams.get("count");
+  const count = countParam === "all"
+    ? Infinity
+    : Math.min(parseInt(countParam ?? "10", 10), 200);
 
   const csvPath = path.join(process.cwd(), "data", "ratings-training.csv");
   const content = fs.readFileSync(csvPath, "utf-8");

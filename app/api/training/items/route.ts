@@ -45,7 +45,10 @@ const EXCLUDED_ANSWERS = new Set(["", "Publish Now"]);
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
-  const count = Math.min(parseInt(searchParams.get("count") ?? "10", 10), 50);
+  const countParam = searchParams.get("count");
+  const count = countParam === "all"
+    ? Infinity
+    : Math.min(parseInt(countParam ?? "10", 10), 200);
 
   const csvPath = path.join(
     process.cwd(),

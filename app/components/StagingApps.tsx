@@ -71,17 +71,18 @@ export default function StagingApps() {
               <button
                 key={app.title}
                 onClick={() => setActiveApp(app)}
-                className="group text-left flex flex-col rounded-xl p-8 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_rgba(30,144,255,0.22)] border border-[rgba(30,144,255,0.28)] hover:border-[rgba(30,144,255,0.55)]"
+                className="group text-left flex flex-col rounded-xl p-8 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_56px_rgba(255,255,255,0.06)] border"
                 style={{
                   background: "linear-gradient(160deg, #0e2345 0%, #091830 100%)",
+                  borderColor: "rgba(255,255,255,0.12)",
                 }}
               >
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-7 transition-colors duration-300 group-hover:bg-[rgba(30,144,255,0.18)]"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-7 transition-colors duration-300 group-hover:bg-[rgba(255,255,255,0.1)]"
                   style={{
-                    backgroundColor: "rgba(30, 144, 255, 0.1)",
-                    border: "1px solid rgba(30, 144, 255, 0.2)",
-                    color: "#1E90FF",
+                    backgroundColor: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    color: "rgba(255,255,255,0.85)",
                   }}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -106,7 +107,7 @@ export default function StagingApps() {
 
                 <div
                   className="mt-8 inline-flex items-center gap-1.5 text-xs font-medium transition-all duration-200 group-hover:gap-3"
-                  style={{ fontFamily: "var(--font-space-mono)", color: "#1E90FF" }}
+                  style={{ fontFamily: "var(--font-space-mono)", color: "rgba(255,255,255,0.6)" }}
                 >
                   Open App
                   <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
