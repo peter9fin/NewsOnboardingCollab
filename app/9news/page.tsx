@@ -17,13 +17,6 @@ const steps = [
     available: true,
   },
   {
-    id: "newsapp" as const,
-    title: "News App Training",
-    description: "Learn how to use the NewsApp changes queue — triage order, reviewing page changes, exchange items, and edge cases.",
-    href: "/presentations/newsapp",
-    available: true,
-  },
-  {
     id: "training" as const,
     title: "Test Your Knowledge",
     description: "Assess your triage skills with real headlines from the 9news feed.",

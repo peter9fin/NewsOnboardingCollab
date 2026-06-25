@@ -22,7 +22,7 @@ export const presentations: Presentation[] = [
     title: "News App Training",
     description: "How to use the NewsApp changes queue — access, triage order, reviewing page changes, exchange items, earnings periods, and edge cases.",
     tag: "Editorial",
-    team: "9news",
+    team: "newsapp",
     embedUrl:
       "https://docs.google.com/presentation/d/1frAnEZuRhIBD8XdEG1q0kxbwUvjcBDD9OWSBLEDvChA/embed?start=false&loop=false&delayms=3000",
   },

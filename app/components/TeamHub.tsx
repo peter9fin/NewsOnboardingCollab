@@ -28,7 +28,7 @@ interface TeamHubProps {
   steps: StepConfig[];
 }
 
-const STEP_ORDER: Step[] = ["guides", "presentations", "newsapp", "knowledge", "training"];
+const STEP_ORDER: Step[] = ["guides", "presentations", "knowledge", "training"];
 
 const ICONS: Record<Step, React.ReactNode> = {
   guides: (
@@ -39,11 +39,6 @@ const ICONS: Record<Step, React.ReactNode> = {
   presentations: (
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
-    </svg>
-  ),
-  newsapp: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="5" y="2" width="14" height="20" rx="2" /><line x1="9" y1="6" x2="15" y2="6" /><line x1="9" y1="10" x2="15" y2="10" /><line x1="9" y1="14" x2="13" y2="14" />
     </svg>
   ),
   knowledge: (
@@ -65,7 +60,6 @@ export default function TeamHub({ team, label, description, steps }: TeamHubProp
   const [progress, setProgress] = useState<Record<Step, boolean>>({
     guides: false,
     presentations: false,
-    newsapp: false,
     knowledge: false,
     training: false,
   });
