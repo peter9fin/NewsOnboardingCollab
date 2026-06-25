@@ -2,8 +2,27 @@
 
 import { useState, useCallback } from "react";
 import Link from "next/link";
-import type { TrainingItem } from "@/app/api/training/items/route";
+import PageShell from "@/app/components/PageShell";
+import Navbar from "@/app/components/Navbar";
 import { saveTrainingAttempt, markStepComplete } from "@/lib/progress";
+import allTrainingItems from "@/data/training-items.json";
+
+interface TrainingItem {
+  title: string;
+  source: string;
+  correctAnswer: string;
+  triageOutcome: string;
+  reasoning: string;
+}
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 const SESSION_SIZE = 10;
 
@@ -46,19 +65,13 @@ export default function NineNewsTraining() {
   const [loading, setLoading] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
 
-  const startSession = useCallback(async () => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/training/items?count=${SESSION_SIZE}`);
-      const data = await res.json();
-      setItems(data.items);
-      setCurrentIndex(0);
-      setSelectedAnswer(null);
-      setAnswers([]);
-      setPhase("question");
-    } finally {
-      setLoading(false);
-    }
+  const startSession = useCallback(() => {
+    const selected = shuffle(allTrainingItems as TrainingItem[]).slice(0, SESSION_SIZE);
+    setItems(selected);
+    setCurrentIndex(0);
+    setSelectedAnswer(null);
+    setAnswers([]);
+    setPhase("question");
   }, []);
 
   const handleAnswer = useCallback(
@@ -100,94 +113,38 @@ export default function NineNewsTraining() {
   const score = answers.filter((a) => a.correct).length;
 
   return (
-    <div
-      className="min-h-screen flex flex-col relative"
-      style={{ backgroundColor: "#0A1628", overflowX: "clip" }}
-    >
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: "radial-gradient(rgba(30, 144, 255, 0.07) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background: "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15, 60, 180, 0.5) 0%, transparent 65%)",
-        }}
-      />
+    <PageShell>
+      <Navbar subtitle="9news · Training" />
 
       {helpOpen && <HelpModal onClose={() => setHelpOpen(false)} />}
 
-      <div className="relative z-10 flex flex-col min-h-screen">
-        <nav
-          className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 border-b"
-          style={{
-            backgroundColor: "rgba(10, 22, 40, 0.75)",
-            borderColor: "rgba(30, 144, 255, 0.2)",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(16px)",
-          }}
-        >
-          <Link href="/">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/9fin-logo.png`}
-              alt="9fin"
-              width={80}
-              height={32}
-              className="object-contain rounded-lg"
-              style={{ height: "auto" }}
-            />
-          </Link>
-          <span
-            className="text-xs tracking-[0.2em] uppercase hidden sm:block"
-            style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.55)" }}
-          >
-            9news · Training
-          </span>
-        </nav>
-
-        <div className="flex-1 flex flex-col items-center justify-center px-6 py-16">
-          {phase === "start" && (
-            <StartScreen loading={loading} onStart={startSession} />
-          )}
-          {phase === "question" && items.length > 0 && (
-            <QuestionScreen
-              item={items[currentIndex]}
-              index={currentIndex}
-              total={items.length}
-              selectedAnswer={selectedAnswer}
-              score={score}
-              onAnswer={handleAnswer}
-              onNext={handleNext}
-              onHelp={() => setHelpOpen(true)}
-            />
-          )}
-          {phase === "complete" && (
-            <CompleteScreen
-              answers={answers}
-              score={score}
-              total={items.length}
-              onRetry={startSession}
-              loading={loading}
-            />
-          )}
-        </div>
-
-        <footer
-          className="text-center py-6 text-xs border-t"
-          style={{
-            fontFamily: "var(--font-space-mono)",
-            color: "rgba(204,204,204,0.4)",
-            borderColor: "rgba(30,144,255,0.1)",
-          }}
-        >
-          9fin Onboarding © 2026
-        </footer>
+      <div className="flex-1 flex flex-col items-center justify-center px-6 py-16">
+        {phase === "start" && (
+          <StartScreen loading={loading} onStart={startSession} />
+        )}
+        {phase === "question" && items.length > 0 && (
+          <QuestionScreen
+            item={items[currentIndex]}
+            index={currentIndex}
+            total={items.length}
+            selectedAnswer={selectedAnswer}
+            score={score}
+            onAnswer={handleAnswer}
+            onNext={handleNext}
+            onHelp={() => setHelpOpen(true)}
+          />
+        )}
+        {phase === "complete" && (
+          <CompleteScreen
+            answers={answers}
+            score={score}
+            total={items.length}
+            onRetry={startSession}
+            loading={loading}
+          />
+        )}
       </div>
-    </div>
+    </PageShell>
   );
 }
 

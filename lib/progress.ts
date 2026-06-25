@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/client";
 
 export type Team = "9news" | "newsapp" | "ratings";
-export type Step = "guides" | "presentations" | "training";
+export type Step = "guides" | "presentations" | "newsapp" | "knowledge" | "training";
 
 // ─── Step progress ────────────────────────────────────────────────────────────
 
@@ -13,7 +13,7 @@ export async function getTeamProgress(
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) return { guides: false, presentations: false, training: false };
+  if (!user) return { guides: false, presentations: false, newsapp: false, knowledge: false, training: false };
 
   const { data } = await supabase
     .from("user_progress")
@@ -25,6 +25,8 @@ export async function getTeamProgress(
   return {
     guides: completed.has("guides"),
     presentations: completed.has("presentations"),
+    newsapp: completed.has("newsapp"),
+    knowledge: completed.has("knowledge"),
     training: completed.has("training"),
   };
 }

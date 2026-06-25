@@ -1,5 +1,6 @@
 import Link from "next/link";
-import SignOutButton from "@/app/components/SignOutButton";
+import PageShell from "@/app/components/PageShell";
+import Navbar from "@/app/components/Navbar";
 
 const drills = [
   {
@@ -8,7 +9,7 @@ const drills = [
     description:
       "Unlimited practice triaging real news headlines — the same format as the 9news training, drawing from the full question pool. Decide whether each article should be published, published as a results event, published as a calendar event, or marked irrelevant.",
     href: "/additional-learning/9news",
-    pool: 50,
+    pool: 199,
     accent: "#1E90FF",
     accentAlpha: "rgba(30,144,255,",
     icon: (
@@ -22,9 +23,9 @@ const drills = [
     id: "ratings",
     label: "Ratings Triage",
     description:
-      "Unlimited practice triaging real #ratings-news-events Slack alerts. 74 live examples — auto-published exchange links and no-company-found messages. Shuffles continuously so no two sessions feel the same.",
+      "Unlimited practice triaging real #ratings-news-events Slack alerts. 200 live examples — auto-published exchange links and no-company-found messages. Shuffles continuously so no two sessions feel the same.",
     href: "/additional-learning/ratings",
-    pool: 74,
+    pool: 200,
     accent: "#a855f7",
     accentAlpha: "rgba(168,85,247,",
     icon: (
@@ -37,56 +38,8 @@ const drills = [
 
 export default function AdditionalLearningPage() {
   return (
-    <div
-      className="min-h-screen flex flex-col relative"
-      style={{ backgroundColor: "#0A1628", overflowX: "clip" }}
-    >
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: "radial-gradient(rgba(30,144,255,0.07) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background: "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15,60,180,0.45) 0%, transparent 65%)",
-        }}
-      />
-
-      <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Navbar */}
-        <nav
-          className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 border-b"
-          style={{
-            backgroundColor: "rgba(10,22,40,0.75)",
-            borderColor: "rgba(30,144,255,0.2)",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(16px)",
-          }}
-        >
-          <div className="flex items-center gap-4">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-xs"
-              style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.5)" }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
-              </svg>
-              Home
-            </Link>
-            <span style={{ color: "rgba(168,85,247,0.3)" }}>/</span>
-            <span
-              className="text-xs"
-              style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.7)" }}
-            >
-              Additional Learning
-            </span>
-          </div>
-          <SignOutButton />
-        </nav>
+    <PageShell>
+      <Navbar subtitle="Additional Learning" showSignOut />
 
         {/* Header */}
         <section className="px-6 pt-20 pb-12 text-center">
@@ -192,17 +145,6 @@ export default function AdditionalLearningPage() {
           </div>
         </section>
 
-        <footer
-          className="text-center py-6 text-xs border-t"
-          style={{
-            fontFamily: "var(--font-space-mono)",
-            color: "rgba(204,204,204,0.4)",
-            borderColor: "rgba(30,144,255,0.1)",
-          }}
-        >
-          9fin Onboarding © 2026
-        </footer>
-      </div>
-    </div>
+    </PageShell>
   );
 }

@@ -1,0 +1,1395 @@
+[
+  {
+    "title": "Federal Circuit Rebuffs Apple’s Bid to Rein in Patent Office",
+    "source": "Bloomberg law - litigation",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Peru, Chile and Argentina Enter a New Phase of Growth Driven by Real-Time Payments, ACI Worldwide Report Finds",
+    "source": "ACI Worldwide",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Games and Finance, Brightstar: revenues of almost 500 million euros in the first quarter of 2026 (+1%), Ebitda at 244.3 million (+15%)",
+    "source": "AgriPro",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Alight to Announce Fourth Quarter and Full Year 2025 Results",
+    "source": "Alight",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Etihad sees cargo revenues rise as profits hit record levels",
+    "source": "Aircargo News",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Apple says some Mac Mini production will move to the US",
+    "source": "BBC",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Amer Sports Reports Third Quarter 2025 Financial Results, Raises Full Year Revenue, Margin, and EPS Guidance",
+    "source": "Amer Sports",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Pemex formalizes the installation of the Petroleum Advisory Commission",
+    "source": "Aristegui Noticias",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Amneal Agrees to Acquire Kashiv BioSciences to Create Global Biosimilar Leader; Reports Strong Preliminary First Quarter 2026 Financial Results and Raises FY2026 Standalone Guidance",
+    "source": "Amneal Pharma",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "ACCO Brands Corporation Declares Quarterly Dividend",
+    "source": "Acco Brands",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "GHSA president backs Mercedes-Benz Stadium despite 2025 loss",
+    "source": "Atlanta Journal-Constitution",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "GFL Environmental to Buy Secure Waste Infrastructure",
+    "source": "WSJ",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "ANI Pharmaceuticals to Discuss Fourth Quarter and Full Year 2025 Financial Results on February 27, 2026, at 8:00 a.m. ET",
+    "source": "ANI Pharmaceuticals",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "CORRECTED Hyundai Motor plans to launch 36 new models in North America by 2030 - Reuters",
+    "source": "Reuters - Global",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "EssilorLuxottica, quarto trimestre da record. Così il fatturato è schizzato a 28.5 miliardi nel 2025",
+    "source": "Affaritaliani",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "ANI Pharmaceuticals Reports First Quarter 2026 Financial Results and Raises 2026 Financial Guidance",
+    "source": "ANI Pharmaceuticals",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Amkor Technology Expands U.S. Advanced Packaging Footprint with Additional Land in Arizona",
+    "source": "Amkor Technology",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Falcons add to front office with Bryce Johnston hire",
+    "source": "Atlanta Journal-Constitution",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Clean Harbors Formally Releases PFAS Disposal and Treatment Guidance Standards to Assist Customers and Communities with Decision Making",
+    "source": "Businesswire",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Ardian forced to sell Expleo's activities to get rid of debt",
+    "source": "l'informe",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "American Express Global Business Travel Doubles Share Repurchase Authorization to $600 Million",
+    "source": "American Express Global Business Travel",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Alta Equipment Group Announces First Quarter 2026 Financial Results",
+    "source": "Alta Equipment",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Uber rolls out women-only option in the US",
+    "source": "BBC",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Home Depot continues buying spree, plans to acquire business aimed at pros",
+    "source": "Atlanta Journal-Constitution",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "AECOM reports second quarter fiscal 2026 results",
+    "source": "AECOM",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Four years into war, Russia's energy revenues drop but oil keeps flowing - Reuters",
+    "source": "Reuters - Global",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "USA, the cinema risk is rekindled: Paramount improves its offer for Warner Bros., ready to pay even the penalty for Netflix",
+    "source": "Affaritaliani",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Firm Retention Summary: QVC Group",
+    "source": "WSJ",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Halifax brand to be axed by Lloyds after 173 years - The Times",
+    "source": "via Google News",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Acadia Healthcare Announces First Quarter 2026 Results",
+    "source": "Acadia Healthcare",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Extensions of equipment concessions, published in the Official European Gazette of the EU Court of Justice order on the Cirsa Italia-ADM case",
+    "source": "AgriPro",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "SCJN rules in favor of Televisa; Treasury must give it 103 million",
+    "source": "Aristegui Noticias",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Amkor Technology to Host 2026 Investor Day and Ring Nasdaq Closing Bell",
+    "source": "Amkor Technology",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Amplify Energy Announces First Quarter 2026 Results and Announces Beta Field Royalty Relief",
+    "source": "Amplify Energy",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Bangaranga! Bulgaria wins Eurovision - but UK comes last",
+    "source": "BBC",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Lotto, 61,000 euro poker in Lombardy",
+    "source": "AgriPro",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Amneal Reports Fourth Quarter and Full Year 2025 Financial Results",
+    "source": "Amneal Pharma",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Atlanta-based Fortune 500 company Genuine Parts plans to split in two",
+    "source": "Atlanta Journal-Constitution",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Ashland announces strategic partnership with IMCD for the exclusive distribution of personal and home care ingredients in the United States",
+    "source": "Ashland",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Cornerstone Building Brands Names Veteran HR Executive Michael Pulcanio as Its New Executive Vice President and Chief Human Resources Officer",
+    "source": "Businesswire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "American Airlines elects Mary Dillon to its board of directors",
+    "source": "American Airlines Group",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Bank of America Announces Redemption of JPY 27,800,000,000 0.534% Fixed/Floating Rate Senior Notes, due March 18, 2027",
+    "source": "pr-newswire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Amneal to Report First Quarter 2026 Results on May 1, 2026",
+    "source": "Amneal Pharma",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Sanoma redeems its outstanding hybrid bond on the reset date 16 March 2026",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Dos Bocas 'continues to operate under safe conditions', 'there is no cause for alarm': Pemex",
+    "source": "Aristegui Noticias",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "First Eagle Active ETF Platform Surpasses $3 Billion in Assets Less than 18 Months after Launch",
+    "source": "Businesswire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Taproot Capital Announces Strategic Partnership with Altair Industries",
+    "source": "pr-newswire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Apple and Google agree to change app stores after 'effective duopoly' claim",
+    "source": "BBC",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Carter’s, Inc. Reports First Quarter Fiscal 2026 Results",
+    "source": "Carter's",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "American Airlines reports first-quarter 2026 financial results",
+    "source": "American Airlines Group",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Norwegian Cruise Line to Overhaul Board After Truce With Elliott",
+    "source": "WSJ",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Tecpetrol and Pampa Energía sued Enarsa for gas payment debts",
+    "source": "La Nación",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "FiberCop-TIM, the network's secret game: green light from the Antitrust. Here's what's happening now",
+    "source": "Affaritaliani",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Aramark Reports First Quarter Earnings",
+    "source": "Aramark",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Amer Sports Reports First Quarter 2026 Financial Results, Raises Full Year Revenue, Margin, and EPS Guidance",
+    "source": "Amer Sports",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "A Bioceres company announced that it will restructure its debt: it seeks to improve conditions and extend terms",
+    "source": "Infobae",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Cleveland-Cliffs Reports First-Quarter 2026 Results",
+    "source": "Businesswire",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "ACI Worldwide to Report First Quarter 2026 Financial Results",
+    "source": "ACI Worldwide",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Academy Sports + Outdoors Announces Preliminary First Quarter Fiscal 2026 Sales Update Ahead of its Analyst Day",
+    "source": "Academy Sports and Outdoors",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Aptiv Reports First Quarter 2026 Financial Results",
+    "source": "Aptiv",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "RCI Banque: ‘’Audited Consolidated Financial Statements as at December 31th 2025’’",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "SpaceX IPO Adds Second Musk Stock. It’s a Problem for Tesla (2)",
+    "source": "Bloomberg Law",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Banks, potential value of 8 billion from AI for the Italian system in three years",
+    "source": "La Repubblica",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Responsible gaming, Ipsos-Fondazione Fair research: inincisive communication, greater effectiveness is needed to support players",
+    "source": "AgriPro",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "May 21, 2026 9:00 AM EDT : Amkor Technology Investor Day 2026",
+    "source": "Amkor Technology",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Landsbankinn hf.: Landsbankinn's financial statements for the first three months of 2026",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "SpaceX Speeds Up IPO Listing: Analyst Warns Of ‘Elon Musk Effect’ - Forbes",
+    "source": "via Google News",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Chelsea Lost EPL-Record $349 Million During 2024-25 Season",
+    "source": "Sportico",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Nissan ponders building cars for Chinese rivals at Sunderland plant",
+    "source": "Guardian",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Alta Equipment Group Announces Fourth Quarter and Full Year 2025 Financial Results and Provides Adjusted EBITDA Guidance for 2026",
+    "source": "Alta Equipment",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Allison Transmission Recognized as Best Performing Supplier by Penske Truck Leasing",
+    "source": "Allison Transmission",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Barrick keeps Pueblo Viejo US$2.6bn capex as works shift to tailings infrastructure",
+    "source": "BNamericas",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "The notes redeemed by Municipality Finance have been removed from trading at Nasdaq Helsinki",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Aneel opens analysis to break Enel SP's contract",
+    "source": "Valor Econômico",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "February 19, 2026 5:00 PM EST : AMN Healthcare 4th Quarter 2025 Earnings Call",
+    "source": "AMN Healthcare",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Alight Reports First Quarter 2026 Results",
+    "source": "Alight",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "AppLovin to Announce First Quarter 2026 Results",
+    "source": "Applovin",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Lotto, Adm suspends the criteria for increasing and reducing terminals in receivers",
+    "source": "AgriPro",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "BrewDog to shut 38 bars with 484 job losses despite US takeover deal",
+    "source": "Standard",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Nova to Report First Quarter 2026 Financial Results on May 14",
+    "source": "PR Newswire",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Amkor Technology Announces Secondary Offering of 10 Million Shares of Common Stock by the Kim Family",
+    "source": "Amkor Technology",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Airbnb Hires Uber Veteran Fuldner as Global Head of Operations",
+    "source": "Bloomberg",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Exor, turnaround on Italian healthcare: John Elkann sells 80% of Lifenet Healthcare. 600 million transaction",
+    "source": "Affaritaliani",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Netflix backs out of bid to acquire CNN-parent Warner Bros. Discovery",
+    "source": "Atlanta Journal-Constitution",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Enter Italy, leave CEO Faelli, Curry Sloan comes in his place: “Central Italian Market”",
+    "source": "AgriPro",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Kyndryl (KD) Faces Class Action Alleging Reported Free Cash Flow Metrics Concealed True Financial Condition Prior to 55% Stock Collapse - Hagens Berman",
+    "source": "pr-newswire",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Has Newey Aston Martin team boss project failed? F1 Q&A",
+    "source": "BBC",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Test Item: Company reports Q1 2023 Earnings Results",
+    "source": "Assurant",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "West Marine Files Bankruptcy to Cut Debt, Close More Stores",
+    "source": "Bloomberg",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Pantheon Expands Global Investment and Client Solutions Capabilities With Four Partner Promotions",
+    "source": "Businesswire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "ADM, new management positions are open in the local area: applications by April 20",
+    "source": "AgriPro",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Real estate, Milan queen of the market: alone it is worth 8 billion euros. The 'hidden' opportunities where to invest",
+    "source": "Affaritaliani",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "SpaceX solicita exención fiscal para construir planta de chips en Texas",
+    "source": "Aristegui Noticias",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "ACI Worldwide and Security Bank Philippines Set New Benchmark for Enterprise-wide Payments Modernization",
+    "source": "ACI Worldwide",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Petroperú hires new chairman to lead restructuring effort",
+    "source": "LatinFinance",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Academy Sports + Outdoors Increases Quarterly Cash Dividend",
+    "source": "Academy Sports and Outdoors",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "SUNation Energy Announces Reduction in Long-Term Debt by Approximately $1.2 Million",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Ford Brings Bronco SUV to Europe in Push for Car-Sales Growth",
+    "source": "Bloomberg",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "APi Group Reports Record Fourth Quarter and Full Year 2025 Financial Results",
+    "source": "APi Group",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Ford says it took an extra $900m tariff hit last year",
+    "source": "BBC",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "J&J is off to a strong start in 2026 — here's how our newest stock can build on it",
+    "source": "CNBC",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "AMG Critical Materials N.V. Announces Strategic Acquisition of AURA Technologie to Establish First Circular High-Purity Molybdenum Platform",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Freepik becomes Magnific, Hits $230M ARR and Introduces the 'No-Collar' Creative Economy",
+    "source": "pr-newswire",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "ALLEGIANT TRAVEL COMPANY SCHEDULES FIRST QUARTER 2026 EARNINGS CALL",
+    "source": "Allegiant Travel",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "AECOM reports first quarter fiscal 2026 results",
+    "source": "AECOM",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Iran war is already bolstering Russia in Ukraine",
+    "source": "Asia Times",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Amer Sports Announces Pricing of its Public Offering of 20,604,396 Ordinary Shares",
+    "source": "Amer Sports",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Aramark to Host Conference Call on Second Quarter Fiscal 2026 Results",
+    "source": "Aramark",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Colombia's GEB pushes Ballenas LNG as Venezuelan gas lags",
+    "source": "BNamericas",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Ashland agrimer™ eco-coat polymer seed coating from the Transformed Vegetable Oils (TVO) platform receives approval for all food and non-food uses in pesticide formulations including for sale in the U.S.",
+    "source": "Ashland",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Atkore Inc. Announces Second Quarter Fiscal Year 2026 Earnings Release Date and Conference Call",
+    "source": "Atkore",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "VALLOUREC : DISCLOSURE OF TRADING IN OWN SHARES FROM 03/02/2026 TO 03/06/2026",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Games, Flutter: revenues of 3.6 billion euros in the first quarter of 2026 (+17%), reaching 31% of the online market in Italy",
+    "source": "AgriPro",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Avantor® to Report First Quarter 2026 Earnings on Wednesday, April 29, 2026",
+    "source": "Avantor",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Conflict in the Middle East has a 'hit' in Mexico's favor; it would gain 15 mmdp due to a rise in oil, BBVA estimates",
+    "source": "Aristegui Noticias",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Trinseo Takes Proactive Step to Strengthen Financial Foundation and to Drive Long-Term Sustainable Growth",
+    "source": "Businesswire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "ACCO Brands Corporation Announces First Quarter 2026 Earnings Webcast",
+    "source": "Acco Brands",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Peabody Reports Results for the Quarter and Year Ended December 31, 2025",
+    "source": "pr-newswire",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Alight to Announce First Quarter 2026 Results",
+    "source": "Alight",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Booking Holdings to Make Fourth Quarter and Full Year 2025 Earnings Press Release Available on Company's Investor Relations Website on February 18",
+    "source": "PR Newswire",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Boston Scientific cuts 2026 profit forecast, trims revenue growth view - Reuters",
+    "source": "Reuters - Global",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "The United States lifts sanctions for gold mining in Venezuela; its companies will be able to negotiate",
+    "source": "Aristegui Noticias",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Brussels Airport and United Cargo target Virginia pharma volumes",
+    "source": "Aircargo News",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Allspring Utilities and High Income Fund (ERH) CUSIP 94987E109 IMPORTANT NOTICE TO SHAREHOLDERS",
+    "source": "pr-newswire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "LyondellBasell completes sale of select European strategic assessment assets",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "May 27, 2026 8:30 AM EDT : Q1 2026 Abercrombie & Fitch Co. Earnings Conference Call",
+    "source": "Abercrombie & Fitch",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Capillary Technologies to acquire Mastercard’s Session M for $20 mn",
+    "source": "Times of India",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Petrobras pushes output limits on mega offshore platforms",
+    "source": "BNamericas",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Georgia Power floats plan for small savings to customers’ bills",
+    "source": "Atlanta Journal-Constitution",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Verizon announces tender offers and consent solicitations for 20 series of Verizon and certain of its subsidiaries’ notes",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Eesti Energia Group Audited Results for the Full Year 2025",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Canacol Energy Announces Appointment of Chief Restructuring Officer",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Ashland sets date for second-quarter fiscal 2026 earnings release and conference call webcast",
+    "source": "Ashland",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Boston Scientific invests $1.5 billion in MiRus with option to buy heart-valve business - Reuters",
+    "source": "Reuters - Global",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Ross Stores stock pops after blowout sales and earnings beat its own forecast",
+    "source": "QZ",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Canada Goose posts 13.3 percent revenue increase for fiscal year 2026",
+    "source": "Fashion Network",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Ex-Nike exec is selling Portland mansion with indoor pool, sport court for $1.6M. See inside",
+    "source": "Oregonian (Portland)",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "ACCO Brands Corporation Announces Fourth Quarter and Full Year 2025 Earnings Webcast",
+    "source": "Acco Brands",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Pemex pipeline catches fire in Rosarito, BC; the fire has been brought under control",
+    "source": "Aristegui Noticias",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Giochi, Codere: net revenues of 64.4 million euros in the first quarter of 2026 (+13%)",
+    "source": "AgriPro",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "American Airlines to webcast remarks at Bernstein Strategic Decisions Conference",
+    "source": "American Airlines Group",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "March 17, 2026 10:00 AM EDT : Academy Sports + Outdoors' Fourth Quarter 2025 Earnings Call",
+    "source": "Academy Sports and Outdoors",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Aramark Reports Second Quarter Earnings",
+    "source": "Aramark",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Stellantis and Dongfeng: Peugeot and Jeep will be born in China",
+    "source": "Affaritaliani",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "UPS MD-11F crash: Ramifications of engine pylon bearing failures not fully realised",
+    "source": "Aircargo News",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Western Digital to sell partial Sandisk stake for $3.17 billion to cut debt - Reuters",
+    "source": "Reuters - Global",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Alta Equipment Group Announces Date of Fourth Quarter and Full Year 2025 Financial Results Release, Conference Call and Webcast",
+    "source": "Alta Equipment",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Kemira Oyj: Notice to the Annual General Meeting",
+    "source": "Cision",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Bloomberg Tech: Oracle, OpenAI End Plans to Expand (Podcast)",
+    "source": "Bloomberg",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "APA Corporation Declares Cash Dividend on Common Shares",
+    "source": "Apache Corporation",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Acushnet Holdings Corp. to Announce Full Year and Fourth Quarter 2025 Financial Results on February 26, 2026",
+    "source": "Acushnet",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Cimpress Agrees to Purchase SAXOPRINT and viaprinto From CEWE",
+    "source": "Cimpress",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Commercial negotiations: cheese maker Savencia fined for non-compliance with its obligations towards farmers",
+    "source": "Les Echos",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Heineken leaves an unstable DRC after forty years of operations",
+    "source": "Le Monde",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Telefónica rejects the departure of 352 volunteers in ERE from its three main subsidiaries",
+    "source": "El Confidencial",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Is Bill Ackman's Deal for Universal Music Really Worth $63 Billion?",
+    "source": "WSJ",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "APA Corporation Announces First-Quarter 2026 Financial and Operational Results",
+    "source": "Apache Corporation",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Record Performance Fuels Long-Term Value Creation for Linamar",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "ESS Announces Agreement to Join Salt River Project and Google Long Duration Energy Storage Collaboration",
+    "source": "Businesswire",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Banamex anticipates annual reviews of the T-MEC until 2028",
+    "source": "Aristegui Noticias",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Games, news in the Flutter SEA Leadership Team: Rosangela Robbiani is the new Chief Public Affairs Officer, Paola Bausano has the role of Chief Product Officer",
+    "source": "AgriPro",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Atkore Inc. Announces Second Quarter 2026 Results",
+    "source": "Atkore",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Amkor Technology Reports Financial Results for the First Quarter 2026",
+    "source": "Amkor Technology",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Atlas Air Worldwide appoints new chief people officer",
+    "source": "Aircargo News",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Aptiv Announces Cash Tender Offer for 3.250% Senior Notes Due 2032, 5.150% Senior Notes Due 2034, 5.750% Senior Notes Due 2054, 5.400% Senior Notes Due 2049, 4.400% Senior Notes Due 2046, 4.150% Senior Notes Due 2052 and 3.100% Senior Notes Due 2051",
+    "source": "Aptiv",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Wolverine Worldwide Announces Fourth Quarter and Full Year Fiscal 2025 Conference Call for February 26, 2026",
+    "source": "Businesswire",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Musk engañó a los accionistas de Twitter durante su compra, dictamina jurado de EE.UU.",
+    "source": "Aristegui Noticias",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Johnson Controls Reports Strong Q2 Results; Raises FY26 Guidance",
+    "source": "pr-newswire",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Exclusive: Iran offers proposal allowing ships to exit Oman side of Hormuz free of attack, source says - Reuters",
+    "source": "Reuters - Global",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Lufthansa Speaks to Investors for Euro Bond as Fuel Stress Grows",
+    "source": "Bloomberg",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Bogota Financial Corp. Reports Results for the Three and Twelve Months Ended December 31, 2025",
+    "source": "GlobeNewsWire",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Avantor® Unifies Masterflex® Portfolio to Streamline Fluid Management from R&D to Bioprocess Manufacturing",
+    "source": "Avantor",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Consultation ends over STV news programme cuts",
+    "source": "BBC",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Angi Inc. to Announce Q1 2026 Earnings on May 5th and Host Earnings Conference Call on May 6th",
+    "source": "ANGI Homeservices",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Smurfit Westrock plc Results of Annual General Meeting of Shareholders and Filing of Form 8-K Reporting the Same",
+    "source": "Businesswire",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Casinos, United States: revenues of 88 million euros in Massachusetts in April (-1.9%)",
+    "source": "AgriPro",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Amkor Technology Prices $1,000 Million Convertible Senior Notes Offering",
+    "source": "Amkor Technology",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Game on: Genco Shipping sets a date for vote on proxy fight with Diana",
+    "source": "Trade Winds News",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Scorpio share price could hit $100 as new deals drive profit, says Clarksons",
+    "source": "Trade Winds News",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "ACCO Brands Reports Fourth Quarter and Full Year Results and Provides Outlook for 2026",
+    "source": "Acco Brands",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Home working, long leases and rise of parking apps - what went wrong for NCP",
+    "source": "BBC",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "7RIDGE Acquires Fidelity International Strategic Ventures Portfolio",
+    "source": "Global Legal Chronicle",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Resolutions from the Annual General Meeting of Vestas Wind Systems A/S",
+    "source": "Cision",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Ashland reports second quarter fiscal 2026 results and updates full-year outlook",
+    "source": "Ashland",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Walmart is now worth a trillion and challenges Big Tech: physical stores, flash deliveries and big investments coming soon",
+    "source": "Affaritaliani",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Angi Inc. Earnings Release and Letter to Shareholders Available on Company’s Website",
+    "source": "ANGI Homeservices",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Porsche's profit slid more than 20% as weak sales weighed on results",
+    "source": "QZ",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Juventus, Elkann confirms Comolli despite the flop: Spalletti will have more power on the market",
+    "source": "Affaritaliani",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "West Brom docked two points for PSR rule breaches",
+    "source": "BBC",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Atlanta-based radio giant Cumulus Media files for bankruptcy protection again",
+    "source": "Atlanta Journal-Constitution",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Acadia Healthcare Announces Fourth Quarter and 2025 Results",
+    "source": "Acadia Healthcare",
+    "correctAnswer": "Publish as Results Event",
+    "triageOutcome": "Published",
+    "reasoning": "Earnings disclosure reveals actual revenue, profitability, and cash flow performance, giving investors and analysts the data needed to assess financial health and update valuations."
+  },
+  {
+    "title": "Atkore Inc. Announces Participation at Upcoming Investor Conferences",
+    "source": "Atkore",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Thames Water should go into administration, investor says",
+    "source": "BBC",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Crane Worldwide integrates cargo.one for air cargo booking",
+    "source": "Aircargo News",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Oil, Eni receives a license from Trump to explore in Venezuela. The Italian among the five majors",
+    "source": "Affaritaliani",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  },
+  {
+    "title": "Russia faces lower LNG revenue as shift to Asia doubles costs - Reuters",
+    "source": "Reuters - Global",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "American Express Global Business Travel to Report First Quarter 2026 Financial Results on May 11, 2026",
+    "source": "American Express Global Business Travel",
+    "correctAnswer": "Publish as Calendar Event",
+    "triageOutcome": "Published",
+    "reasoning": "Investor conference or earnings presentation provides management a direct channel to update capital markets on financial strategy, performance metrics, and forward-looking expectations."
+  },
+  {
+    "title": "Bank of America to pay out $72.5m over Epstein lawsuit",
+    "source": "BBC",
+    "correctAnswer": "Publish",
+    "triageOutcome": "Published",
+    "reasoning": "This article reports a notable development with financial implications, including potential impacts on revenue, costs, balance sheet strength, or shareholder value."
+  },
+  {
+    "title": "Avantor® Enhances U.S. Biomanufacturing Infrastructure with Expanded Stability and Microbial Testing Facility",
+    "source": "Avantor",
+    "correctAnswer": "Irrelevant",
+    "triageOutcome": "Rejected",
+    "reasoning": "Irrelevant Content"
+  }
+]

@@ -1,6 +1,7 @@
 "use client";
 
 import { use, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { markStepComplete, type Team, type Step } from "@/lib/progress";
 import NextStepToast from "./NextStepToast";
@@ -58,13 +59,13 @@ export default function CompletionFooter({
               : `Done reading? Mark this step as complete to unlock the next one.`}
           </p>
           <div className="flex items-center gap-3 flex-shrink-0">
-            <a
+            <Link
               href={teamHref}
               className="text-xs transition-opacity hover:opacity-100 opacity-60"
               style={{ fontFamily: "var(--font-space-mono)", color: "#1E90FF" }}
             >
               ← Back
-            </a>
+            </Link>
             {!done ? (
               <button
                 onClick={handleComplete}

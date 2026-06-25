@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc*)",
+      "Bash(npm run *)",
+      "Bash(mkdir -p *)",
+      "Bash(cp *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push*)",
+      "Bash(git push)",
+      "mcp__34083ebc-da10-489d-8b40-cd3a3760cde6__search_files",
+      "mcp__34083ebc-da10-489d-8b40-cd3a3760cde6__read_file_content",
+      "mcp__34083ebc-da10-489d-8b40-cd3a3760cde6__list_recent_files"
+    ]
+  }
+}

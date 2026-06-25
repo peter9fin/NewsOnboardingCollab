@@ -10,6 +10,8 @@ import {
   markStepComplete,
 } from "@/lib/progress";
 import NextStepToast from "./NextStepToast";
+import PageShell from "./PageShell";
+import Navbar from "./Navbar";
 
 interface StepConfig {
   id: Step;
@@ -26,7 +28,7 @@ interface TeamHubProps {
   steps: StepConfig[];
 }
 
-const STEP_ORDER: Step[] = ["guides", "presentations", "training"];
+const STEP_ORDER: Step[] = ["guides", "presentations", "newsapp", "knowledge", "training"];
 
 const ICONS: Record<Step, React.ReactNode> = {
   guides: (
@@ -37,6 +39,16 @@ const ICONS: Record<Step, React.ReactNode> = {
   presentations: (
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" />
+    </svg>
+  ),
+  newsapp: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="5" y="2" width="14" height="20" rx="2" /><line x1="9" y1="6" x2="15" y2="6" /><line x1="9" y1="10" x2="15" y2="10" /><line x1="9" y1="14" x2="13" y2="14" />
+    </svg>
+  ),
+  knowledge: (
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" />
     </svg>
   ),
   training: (
@@ -53,6 +65,8 @@ export default function TeamHub({ team, label, description, steps }: TeamHubProp
   const [progress, setProgress] = useState<Record<Step, boolean>>({
     guides: false,
     presentations: false,
+    newsapp: false,
+    knowledge: false,
     training: false,
   });
 
@@ -119,55 +133,8 @@ export default function TeamHub({ team, label, description, steps }: TeamHubProp
 
   return (
     <>
-      <div
-        className="min-h-screen flex flex-col relative"
-        style={{ backgroundColor: "#0A1628", overflowX: "clip" }}
-      >
-        {/* Dot grid */}
-        <div
-          className="fixed inset-0 pointer-events-none z-0"
-          style={{
-            backgroundImage: "radial-gradient(rgba(30, 144, 255, 0.07) 1px, transparent 1px)",
-            backgroundSize: "28px 28px",
-          }}
-        />
-        {/* Radial glow */}
-        <div
-          className="fixed inset-0 pointer-events-none z-0"
-          style={{
-            background: "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15, 60, 180, 0.5) 0%, transparent 65%)",
-          }}
-        />
-
-        <div className="relative z-10 flex flex-col min-h-screen">
-          {/* Navbar */}
-          <nav
-            className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 border-b"
-            style={{
-              backgroundColor: "rgba(10, 22, 40, 0.75)",
-              borderColor: "rgba(30, 144, 255, 0.2)",
-              backdropFilter: "blur(16px)",
-              WebkitBackdropFilter: "blur(16px)",
-            }}
-          >
-            <Link href="/">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/9fin-logo.png`}
-                alt="9fin"
-                width={80}
-                height={32}
-                className="object-contain rounded-lg"
-                style={{ height: "auto" }}
-              />
-            </Link>
-            <span
-              className="text-xs tracking-[0.2em] uppercase hidden sm:block"
-              style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.55)" }}
-            >
-              Onboarding Portal
-            </span>
-          </nav>
+      <PageShell>
+        <Navbar />
 
           {/* Header */}
           <section className="px-6 pt-16 pb-12">
@@ -258,19 +225,7 @@ export default function TeamHub({ team, label, description, steps }: TeamHubProp
             </div>
           </section>
 
-          {/* Footer */}
-          <footer
-            className="text-center py-6 text-xs border-t"
-            style={{
-              fontFamily: "var(--font-space-mono)",
-              color: "rgba(204,204,204,0.4)",
-              borderColor: "rgba(30,144,255,0.1)",
-            }}
-          >
-            9fin Onboarding © 2026
-          </footer>
-        </div>
-      </div>
+      </PageShell>
 
       <NextStepToast
         show={toast.show}

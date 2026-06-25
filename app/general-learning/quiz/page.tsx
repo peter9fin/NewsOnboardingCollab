@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import PageShell from "@/app/components/PageShell";
+import Navbar from "@/app/components/Navbar";
 
 const QUESTIONS = [
   {
@@ -161,57 +163,10 @@ export default function GeneralLearningQuiz() {
   }
 
   return (
-    <div
-      className="min-h-screen flex flex-col relative"
-      style={{ backgroundColor: "#0A1628", overflowX: "clip" }}
-    >
-      {/* Dot grid */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: "radial-gradient(rgba(30, 144, 255, 0.07) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      {/* Radial glow */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background: "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15, 60, 180, 0.5) 0%, transparent 65%)",
-        }}
-      />
+    <PageShell>
+      <Navbar subtitle="General Learning · Quiz" />
 
-      <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Navbar */}
-        <nav
-          className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 border-b"
-          style={{
-            backgroundColor: "rgba(10, 22, 40, 0.75)",
-            borderColor: "rgba(30, 144, 255, 0.2)",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(16px)",
-          }}
-        >
-          <Link href="/">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/9fin-logo.png`}
-              alt="9fin"
-              width={80}
-              height={32}
-              className="object-contain rounded-lg"
-              style={{ height: "auto" }}
-            />
-          </Link>
-          <span
-            className="text-xs tracking-[0.2em] uppercase hidden sm:block"
-            style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.55)" }}
-          >
-            General Learning · Quiz
-          </span>
-        </nav>
-
-        <div className="flex-1 flex flex-col items-center justify-center px-6 py-16">
+      <div className="flex-1 flex flex-col items-center justify-center px-6 py-16">
           {phase === "start" && (
             <div className="w-full max-w-lg text-center">
               <div
@@ -431,19 +386,7 @@ export default function GeneralLearningQuiz() {
             />
           )}
         </div>
-
-        <footer
-          className="text-center py-6 text-xs border-t"
-          style={{
-            fontFamily: "var(--font-space-mono)",
-            color: "rgba(204,204,204,0.4)",
-            borderColor: "rgba(30,144,255,0.1)",
-          }}
-        >
-          9fin Onboarding © 2026
-        </footer>
-      </div>
-    </div>
+    </PageShell>
   );
 }
 

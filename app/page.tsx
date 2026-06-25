@@ -1,6 +1,7 @@
 import Link from "next/link";
 import StagingApps from "./components/StagingApps";
-import SignOutButton from "./components/SignOutButton";
+import PageShell from "./components/PageShell";
+import Navbar from "./components/Navbar";
 
 const teams = [
   {
@@ -42,57 +43,8 @@ const teams = [
 
 export default function Home() {
   return (
-    <div
-      className="min-h-screen flex flex-col relative"
-      style={{ backgroundColor: "#0A1628", overflowX: "clip" }}
-    >
-      {/* Background: subtle dot grid */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: "radial-gradient(rgba(30, 144, 255, 0.07) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      {/* Background: blue radial glow from top */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background: "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15, 60, 180, 0.5) 0%, transparent 65%)",
-        }}
-      />
-
-      <div className="relative z-10 flex flex-col min-h-screen">
-
-        {/* Sticky Navbar */}
-        <nav
-          className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 border-b"
-          style={{
-            backgroundColor: "rgba(10, 22, 40, 0.75)",
-            borderColor: "rgba(30, 144, 255, 0.2)",
-            backdropFilter: "blur(16px)",
-            WebkitBackdropFilter: "blur(16px)",
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/9fin-logo.png`}
-            alt="9fin"
-            width={80}
-            height={32}
-            className="object-contain rounded-lg"
-            style={{ height: "auto" }}
-          />
-          <div className="flex items-center gap-6">
-            <span
-              className="text-xs tracking-[0.2em] uppercase hidden sm:block"
-              style={{ fontFamily: "var(--font-space-mono)", color: "rgba(204,204,204,0.55)" }}
-            >
-              Onboarding Portal
-            </span>
-            <SignOutButton />
-          </div>
-        </nav>
+    <PageShell>
+      <Navbar isHome showSignOut />
 
         {/* Hero */}
         <section className="flex flex-col items-center justify-center text-center px-6 pt-24 pb-12">
@@ -392,7 +344,7 @@ export default function Home() {
                 },
                 {
                   label: "Ratings Triage",
-                  desc: "Unlimited practice triaging real #ratings-news-events Slack alerts from the full 74-question pool.",
+                  desc: "Unlimited practice triaging real #ratings-news-events Slack alerts from the full 200-question pool.",
                   href: "/additional-learning/ratings",
                   accent: "#a855f7",
                   border: "rgba(168,85,247,0.28)",
@@ -451,20 +403,7 @@ export default function Home() {
         </section>
 
         <StagingApps />
-
-        {/* Footer */}
-        <footer
-          className="text-center py-6 text-xs border-t"
-          style={{
-            fontFamily: "var(--font-space-mono)",
-            color: "rgba(204,204,204,0.4)",
-            borderColor: "rgba(30,144,255,0.1)",
-          }}
-        >
-          9fin Onboarding © 2026
-        </footer>
-      </div>
-    </div>
+    </PageShell>
   );
 }
 

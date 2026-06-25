@@ -17,9 +17,16 @@ const steps = [
     available: true,
   },
   {
-    id: "training" as const,
+    id: "knowledge" as const,
     title: "Test Your Knowledge",
-    description: "8-question quiz covering ratings methodology, the scale, outlooks, CFR vs instrument, and why ratings matter on 9fin.",
+    description: "8-question quiz on ratings methodology — the scale, agencies, outlooks, CFR vs instrument, and why ratings matter on 9fin.",
+    href: "/ratings/knowledge",
+    available: true,
+  },
+  {
+    id: "training" as const,
+    title: "Triage Assessment",
+    description: "10-question quiz on real #ratings-news-events Slack messages — decide when to update CFR, instrument ratings, publish, or ignore.",
     href: "/ratings/quiz",
     available: true,
   },

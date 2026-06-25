@@ -2,7 +2,17 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import type { TrainingItem } from "@/app/api/training/items/route";
+import allTrainingItems from "@/data/training-items.json";
+import PageShell from "@/app/components/PageShell";
+import Navbar from "@/app/components/Navbar";
+
+interface TrainingItem {
+  title: string;
+  source: string;
+  correctAnswer: string;
+  triageOutcome: string;
+  reasoning: string;
+}
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -54,13 +64,8 @@ export default function NineNewsDrillPage() {
   const [helpOpen, setHelpOpen] = useState(false);
 
   useEffect(() => {
-    fetch("/api/training/items?count=all")
-      .then((r) => r.json())
-      .then(({ items }: { items: TrainingItem[] }) => {
-        setPool(shuffle(items));
-        setPhase("question");
-      })
-      .catch(() => setPhase("question"));
+    setPool(shuffle(allTrainingItems as TrainingItem[]));
+    setPhase("question");
   }, []);
 
   const currentItem = pool[idx] ?? null;
@@ -95,33 +100,17 @@ export default function NineNewsDrillPage() {
   const mono = "var(--font-space-mono), ui-monospace, monospace";
 
   return (
-    <div
-      className="min-h-screen flex flex-col relative"
-      style={{ backgroundColor: "#0A1628", overflowX: "clip" }}
-    >
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: "radial-gradient(rgba(30,144,255,0.07) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background: "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15,60,180,0.45) 0%, transparent 65%)",
-        }}
-      />
-
+    <PageShell>
       {helpOpen && <HelpModal onClose={() => setHelpOpen(false)} />}
 
-      <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Navbar */}
-        <nav
-          className="sticky top-0 z-50 flex items-center justify-between px-6 py-3 border-b"
+      <Navbar subtitle="9news &middot; Drill" />
+
+        {/* Drill toolbar */}
+        <div
+          className="sticky top-[57px] z-40 flex items-center justify-between px-6 py-2.5 border-b"
           style={{
             backgroundColor: "rgba(10,22,40,0.85)",
-            borderColor: "rgba(30,144,255,0.15)",
+            borderColor: "rgba(30,144,255,0.1)",
             backdropFilter: "blur(16px)",
             WebkitBackdropFilter: "blur(16px)",
           }}
@@ -191,7 +180,7 @@ export default function NineNewsDrillPage() {
               </div>
             )}
           </div>
-        </nav>
+        </div>
 
         {/* Main */}
         <main className="flex-1 flex flex-col items-center px-4 py-10">
@@ -360,18 +349,7 @@ export default function NineNewsDrillPage() {
           </div>
         </main>
 
-        <footer
-          className="text-center py-4 text-xs border-t"
-          style={{
-            fontFamily: mono,
-            color: "rgba(204,204,204,0.3)",
-            borderColor: "rgba(30,144,255,0.1)",
-          }}
-        >
-          9fin Onboarding © 2026
-        </footer>
-      </div>
-    </div>
+    </PageShell>
   );
 }
 

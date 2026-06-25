@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import PageShell from "@/app/components/PageShell";
+import Navbar from "@/app/components/Navbar";
 
 const EMBED_URL =
   "https://docs.google.com/presentation/d/e/2PACX-1vS1WLX66T0ZtvTEWkfSPwTgJqN2aUeKo6O-t2UoLF1jYCThTYh4d-JR_o1JOS6345JzwuIklXoHEa-n/pubembed?start=false&loop=false&delayms=3000";
@@ -12,28 +14,7 @@ export default function PresentationViewerPage() {
   const router = useRouter();
 
   return (
-    <div
-      className="min-h-screen flex flex-col relative overflow-x-hidden"
-      style={{ backgroundColor: "#0A1628" }}
-    >
-      {/* Background: subtle dot grid */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(30, 144, 255, 0.07) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
-      />
-      {/* Background: blue radial glow */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 120% 55% at 50% -5%, rgba(15, 60, 180, 0.5) 0%, transparent 65%)",
-        }}
-      />
-
+    <PageShell>
       {/* Quiz prompt modal */}
       {showModal && (
         <div
@@ -116,36 +97,7 @@ export default function PresentationViewerPage() {
         </div>
       )}
 
-      <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Navbar */}
-        <nav
-          className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 border-b"
-          style={{
-            backgroundColor: "#0A1628",
-            borderColor: "rgba(30, 144, 255, 0.2)",
-          }}
-        >
-          <Link href="/">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/9fin-logo.png`}
-              alt="9fin"
-              width={80}
-              height={32}
-              className="object-contain rounded-lg"
-              style={{ height: "auto" }}
-            />
-          </Link>
-          <span
-            className="text-xs tracking-[0.2em] uppercase hidden sm:block"
-            style={{
-              fontFamily: "var(--font-space-mono)",
-              color: "rgba(204,204,204,0.55)",
-            }}
-          >
-            Onboarding Portal
-          </span>
-        </nav>
+      <Navbar subtitle="General Learning" />
 
         {/* Breadcrumb + title */}
         <div className="px-6 pt-10 pb-6 max-w-6xl mx-auto w-full">
@@ -232,19 +184,6 @@ export default function PresentationViewerPage() {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer
-          className="text-center py-6 text-xs border-t"
-          style={{
-            fontFamily: "var(--font-space-mono)",
-            color: "rgba(204,204,204,0.4)",
-            borderColor: "rgba(30,144,255,0.1)",
-          }}
-        >
-          9fin Onboarding © 2026
-        </footer>
-      </div>
-
       {/* Sticky completion bar */}
       <div
         className="fixed bottom-0 left-0 right-0 z-40 px-6 py-4 border-t"
@@ -274,6 +213,6 @@ export default function PresentationViewerPage() {
           </button>
         </div>
       </div>
-    </div>
+    </PageShell>
   );
 }
